@@ -21,7 +21,7 @@
     {{-- @vite(['resources/css/dark.css', 'resources/js/app.js']) --}}
 
     @vite(['resources/css/dark.css', 'resources/js/app.js'])
-    <title>Blogy &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+    <title>Terciel &mdash; Blog</title>
 </head>
 {{--
 HOW TO USE:
