@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminPagesController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\WebSettingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,4 +46,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/invoice', [AdminPagesController::class, 'invoice']);
     Route::get('/tasks', [AdminPagesController::class, 'tasks']);
     Route::get('/calendar', [AdminPagesController::class, 'calendar']);
+
+    Route::resource('web-settings', WebSettingController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('posts', PostController::class);
 });

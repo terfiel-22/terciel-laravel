@@ -2,8 +2,7 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ url('/') }}">
             <span class="sidebar-brand-text align-middle">
-                AdminKit
-                <sup><small class="badge bg-primary text-uppercase">Pro</small></sup>
+                Terciel
             </span>
             <svg class="sidebar-brand-icon align-middle" width="32px" height="32px" viewBox="0 0 24 24" fill="none"
                 stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" color="#FFFFFF"
@@ -63,17 +62,49 @@
                     </li>
                     <li class="sidebar-item {{ Request::is('admin/ecommerce') ? 'active':'' }}"><a class="sidebar-link"
                             href="{{ url('admin/ecommerce') }}">E-Commerce
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                     <li class="sidebar-item {{ Request::is('admin/crypto') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/crypto') }}">Crypto <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/crypto') }}">Crypto</a></li>
+                </ul>
+            </li>
+
+            <li
+                class="sidebar-item {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? 'active':'' }}">
+                <a data-bs-target="#categories" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? '':'collapsed' }}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
+                </a>
+                <ul id="categories"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? 'show':'' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/categories/create') ? 'active':'' }}"><a
+                            class="sidebar-link" href="{{ url('admin/categories/create') }}">Add Category</a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('admin/categories') ? 'active':'' }}"><a class="sidebar-link"
+                            href="{{ url('admin/categories') }}">View Categories</a></li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item {{ Request::is('admin/posts')||Request::is('admin/posts/create') ? 'active':'' }}">
+                <a data-bs-target="#posts" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/posts')||Request::is('admin/posts/create') ? '':'collapsed' }}">
+                    <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Posts</span>
+                </a>
+                <ul id="posts"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/posts')||Request::is('admin/posts/create') ? 'show':'' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/posts/create') ? 'active':'' }}"><a
+                            class="sidebar-link" href="{{ url('admin/posts/create') }}">Add Post</a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('admin/posts') ? 'active':'' }}"><a class="sidebar-link"
+                            href="{{ url('admin/posts') }}">View Posts</a></li>
                 </ul>
             </li>
 
             <li
                 class="sidebar-item {{ Request::is('admin/settings')||Request::is('admin/projects')||Request::is('admin/clients')||Request::is('admin/orders')||Request::is('admin/pricing')||Request::is('admin/chats')||Request::is('admin/blank') ? 'active':'' }}">
                 <a data-bs-target="#pages" data-bs-toggle="collapse"
-                    class="sidebar-link collapsed{{ Request::is('admin/settings')||Request::is('admin/projects')||Request::is('admin/clients')||Request::is('admin/orders')||Request::is('admin/pricing')||Request::is('admin/chats')||Request::is('admin/blank') ? '':'collapsed' }}">
+                    class="sidebar-link collapsed {{ Request::is('admin/settings')||Request::is('admin/projects')||Request::is('admin/clients')||Request::is('admin/orders')||Request::is('admin/pricing')||Request::is('admin/chats')||Request::is('admin/blank') ? '':'collapsed' }}">
                     <i class="align-middle" data-feather="layout"></i> <span class="align-middle">Pages</span>
                 </a>
                 <ul id="pages"
@@ -83,20 +114,15 @@
                             href="{{ url('admin/settings') }}">Settings</a>
                     </li>
                     <li class="sidebar-item {{ Request::is('admin/projects') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/projects') }}">Projects <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/projects') }}">Projects</a></li>
                     <li class="sidebar-item {{ Request::is('admin/clients') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/clients') }}">Clients <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/clients') }}">Clients</a></li>
                     <li class="sidebar-item {{ Request::is('admin/orders') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/orders') }}">Orders <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/orders') }}">Orders</a></li>
                     <li class="sidebar-item {{ Request::is('admin/pricing') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/pricing') }}">Pricing <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/pricing') }}">Pricing</a></li>
                     <li class="sidebar-item {{ Request::is('admin/chats') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/chats') }}">Chat <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            href="{{ url('admin/chats') }}">Chat</a></li>
                     <li class="sidebar-item {{ Request::is('admin/blank') ? 'active':'' }}"><a class="sidebar-link"
                             href="{{ url('admin/blank') }}">Blank Page</a>
                     </li>
@@ -108,7 +134,13 @@
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
+                <a class="sidebar-link" href="{{ url('admin/web-settings') }}">
+                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Website
+                        Settings</span>
 
+                </a>
+            </li>
             <li class="sidebar-item {{ Request::is('admin/invoice') ? 'active':'' }}">
                 <a class="sidebar-link" href="{{ url('admin/invoice') }}">
                     <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Invoice</span>
@@ -118,14 +150,14 @@
             <li class="sidebar-item {{ Request::is('admin/tasks') ? 'active':'' }}">
                 <a class="sidebar-link" href="{{ url('admin/tasks') }}">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">Tasks</span>
-                    <span class="sidebar-badge badge bg-primary">Pro</span>
+
                 </a>
             </li>
 
             <li class="sidebar-item {{ Request::is('admin/calendar') ? 'active':'' }}">
                 <a class="sidebar-link" href="{{ url('admin/calendar') }}">
                     <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Calendar</span>
-                    <span class="sidebar-badge badge bg-primary">Pro</span>
+
                 </a>
             </li>
 
@@ -137,11 +169,9 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset
-                            Password <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Password </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li>
                 </ul>
             </li>
 
@@ -160,12 +190,10 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="ui-offcanvas.html">Offcanvas <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="ui-offcanvas.html">Offcanvas</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="ui-placeholders.html">Placeholders
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="ui-tabs.html">Tabs <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="ui-tabs.html">Tabs</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a>
                     </li>
                 </ul>
@@ -178,7 +206,7 @@
                 <ul id="icons" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="icons-feather.html">Feather</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="icons-font-awesome.html">Font Awesome
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
@@ -189,9 +217,9 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic
                             Inputs</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-input-groups.html">Input Groups
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
@@ -210,11 +238,10 @@
                 </a>
                 <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-advanced-inputs.html">Advanced
-                            Inputs <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-editors.html">Editors <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Inputs </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-editors.html">Editors</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-validation.html">Validation
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
@@ -223,17 +250,17 @@
                 </a>
                 <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-responsive.html">Responsive
-                            Table <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Table </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-buttons.html">Table
-                            with Buttons <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            with Buttons </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-column-search.html">Column
-                            Search <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Search </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-fixed-header.html">Fixed
-                            Header <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Header </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-multi.html">Multi
-                            Selection <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Selection </a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-ajax.html">Ajax
-                            Sourced Data <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                            Sourced Data </a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
@@ -244,13 +271,13 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html">Chart.js</a>
                     </li>
                     <li class="sidebar-item"><a class="sidebar-link" href="charts-apexcharts.html">ApexCharts
-                            <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                        </a></li>
                 </ul>
             </li>
             <li class="sidebar-item">
                 <a class="sidebar-link" href="notifications.html">
                     <i class="align-middle" data-feather="bell"></i> <span class="align-middle">Notifications</span>
-                    <span class="sidebar-badge badge bg-primary">Pro</span>
+
                 </a>
             </li>
             <li class="sidebar-item">
@@ -260,8 +287,7 @@
                 <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="maps-google.html">Google Maps</a>
                     </li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="maps-vector.html">Vector Maps <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="maps-vector.html">Vector Maps</a></li>
                 </ul>
             </li>
 
@@ -307,18 +333,5 @@
                 </ul>
             </li>
         </ul>
-
-        <div class="sidebar-cta">
-            <div class="sidebar-cta-content">
-                <strong class="d-inline-block mb-2">Weekly Sales Report</strong>
-                <div class="mb-3 text-sm">
-                    Your weekly sales report is ready for download!
-                </div>
-
-                <div class="d-grid">
-                    <a href="https://adminkit.io/" class="btn btn-outline-primary" target="_blank">Download</a>
-                </div>
-            </div>
-        </div>
     </div>
 </nav>
