@@ -5,8 +5,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
+                'resources/css/light.css',
+                'resources/css/dark.css',
                 'resources/js/app.js',
+                'resources/js/datatables.js',
+                'resources/js/fullcalendar.js',
             ],
             refresh: true,
         }),
