@@ -31,7 +31,7 @@ data-sidebar-position: left (default), right
 data-sidebar-layout: default (default), compact
 --}}
 
-<body data-theme="dark" data-layout="boxed" data-sidebar-position="left" data-sidebar-layout="default">
+<body data-theme="dark" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
     <div class="wrapper">
         @include('layouts.inc.admin-sidebar')
 
