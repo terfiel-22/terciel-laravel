@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-light navbar-bg">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+    <div class="container-fluid">
+        <a class="sidebar-brand" href="{{ url('/') }}">
+            Terciel<span class="text-primary">.</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
