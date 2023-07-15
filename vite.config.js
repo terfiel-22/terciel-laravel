@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/light.css',
                 'resources/css/dark.css',
                 'resources/js/app.js',
+                'resources/js/jquery.js',
                 'resources/js/datatables.js',
                 'resources/js/fullcalendar.js',
             ],
