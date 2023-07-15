@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <meta name="author" content="Untree.co">
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
