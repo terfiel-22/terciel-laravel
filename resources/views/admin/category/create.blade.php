@@ -11,11 +11,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Category</h5>
-                        <h6 class="card-subtitle text-muted">Modern WYSIWYG editor built for compatibility and
-                            extensibility.</h6>
-                    </div>
                     <div class="card-body">
                         <div class="clearfix">
                             <form>
@@ -36,7 +31,7 @@
                                 <div class="mb-3">
                                     <label class="form-label w-100">Image</label>
                                     <input type="file" class="form-control">
-                                    <small class="form-text text-muted">Please input category image.</small>
+                                    <small class="form-text text-muted">Please upload category image.</small>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Meta Title</label>
@@ -112,15 +107,16 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-check m-0">
-                                        <input type="checkbox" class="form-check-input">
-                                        <span class="form-check-label">Display to Navigation Bar</span>
-                                    </label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="displayOnNav" checked>
+                                        <label class="form-check-label" for="displayOnNav">Display on Navigation
+                                            Bar</label>
+                                    </div>
 
-                                    <label class="form-check m-0">
-                                        <input type="checkbox" class="form-check-input">
-                                        <span class="form-check-label">Enable</span>
-                                    </label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="status" checked>
+                                        <label class="form-check-label" for="status">Enable Category</label>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
