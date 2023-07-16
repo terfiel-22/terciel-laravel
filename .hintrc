@@ -3,6 +3,8 @@
     "development"
   ],
   "hints": {
-    "create-element-svg": "off"
+    "create-element-svg": "off",
+    "compat-api/css": "off",
+    "css-prefix-order": "off"
   }
 }
