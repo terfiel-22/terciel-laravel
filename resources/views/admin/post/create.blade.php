@@ -15,6 +15,15 @@
                         <div class="clearfix">
                             <form>
                                 <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-select">
+                                        <option>Select a category...</option>
+                                        <option>One</option>
+                                        <option>Two</option>
+                                        <option>Three</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" class="form-control" placeholder="Name">
                                 </div>
