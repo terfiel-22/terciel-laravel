@@ -30,7 +30,7 @@
                                     <td>Enabled</td>
                                     <td>
                                         <div class="input-group">
-                                            <button type="button" class="btn dropdown-toggle p-0"
+                                            <button type="button" class="btn dropdown-toggle"
                                                 data-bs-toggle="dropdown">Actions</button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="#edit">Edit</a>
