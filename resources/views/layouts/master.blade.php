@@ -36,7 +36,7 @@ data-sidebar-layout: default (default), compact
         @include('layouts.inc.admin-sidebar')
 
         <div class="main">
-            @include('layouts.inc.admin-navbar')
+            @include('layouts.inc.master-navbar')
 
             @yield('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.author')
 
 @section('content')
 <main class="content">
