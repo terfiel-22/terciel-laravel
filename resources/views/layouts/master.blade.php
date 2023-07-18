@@ -33,14 +33,14 @@ data-sidebar-layout: default (default), compact
 
 <body data-theme="dark" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
     <div class="wrapper">
-        @include('layouts.inc.admin-sidebar')
+        @include('layouts.inc.master-sidebar')
 
         <div class="main">
             @include('layouts.inc.master-navbar')
 
             @yield('content')
 
-            @include('layouts.inc.admin-footer')
+            @include('layouts.inc.master-footer')
         </div>
     </div>
     @yield('scripts')
