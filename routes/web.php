@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\WebSettingController;
+use App\Http\Controllers\Author\AuthorPagesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,5 +50,29 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('web-settings', WebSettingController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('posts', PostController::class);
+});
+
+// Author Routes
+Route::prefix('author')->group(function () {
+    // Dashboard
+    Route::get('/', [AuthorPagesController::class, 'analytics']);
+    Route::get('/ecommerce', [AuthorPagesController::class, 'ecommerce']);
+    Route::get('/crypto', [AuthorPagesController::class, 'crypto']);
+
+    // Pages
+    Route::get('/settings', [AuthorPagesController::class, 'settings']);
+    Route::get('/projects', [AuthorPagesController::class, 'projects']);
+    Route::get('/clients', [AuthorPagesController::class, 'clients']);
+    Route::get('/orders', [AuthorPagesController::class, 'orders']);
+    Route::get('/pricing', [AuthorPagesController::class, 'pricing']);
+    Route::get('/chats', [AuthorPagesController::class, 'chats']);
+    Route::get('/blank', [AuthorPagesController::class, 'blank']);
+
+    Route::get('/profile', [AuthorPagesController::class, 'profile']);
+    Route::get('/invoice', [AuthorPagesController::class, 'invoice']);
+    Route::get('/tasks', [AuthorPagesController::class, 'tasks']);
+    Route::get('/calendar', [AuthorPagesController::class, 'calendar']);
+    
     Route::resource('posts', PostController::class);
 });
