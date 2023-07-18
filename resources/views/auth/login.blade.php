@@ -21,18 +21,33 @@
                                     <img src="{{ asset('images/avatars/avatar.jpg') }}" alt="Charles Hall"
                                         class="img-fluid rounded-circle" width="132" height="132" />
                                 </div>
-                                <form>
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email"
-                                            placeholder="Enter your email" />
+                                        <input type="email"
+                                            class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                            placeholder="Enter your email" name="email" value="{{ old('email') }}"
+                                            required autocomplete="email" autofocus>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password"
-                                            placeholder="Enter your password" />
+                                        <input type="password"
+                                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                            placeholder="Enter your password" name="password" required
+                                            autocomplete="current-password">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                         <small>
-                                            <a href="pages-reset-password.html">Forgot password?</a>
+                                            <a href="{{ route('password.request') }}">Forgot password?</a>
                                         </small>
                                     </div>
                                     <div>
@@ -45,14 +60,15 @@
                                         </label>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="index.html" class="btn btn-lg btn-primary">Sign in</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+                                        <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
+                    <div class="text-center mt-3">
+                        Don't have an account? <a href="{{ url('/register') }}">Sign up</a>
+                    </div>
                 </div>
             </div>
         </div>

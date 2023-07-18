@@ -17,36 +17,66 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="m-sm-4">
-                                <form>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
-                                        <input class="form-control form-control-lg" type="text" name="name"
-                                            placeholder="Enter your name" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Company</label>
-                                        <input class="form-control form-control-lg" type="text" name="company"
-                                            placeholder="Enter your company name" />
+                                        <input type="text"
+                                            class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                            placeholder="Enter your name" name="name" value="{{ old('name') }}" required
+                                            autocomplete="name" autofocus>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email"
-                                            placeholder="Enter your email" />
+                                        <input type="email"
+                                            class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                            placeholder="Enter your email" name="email" value="{{ old('email') }}"
+                                            required autocomplete="email" autofocus>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password"
-                                            placeholder="Enter password" />
+                                        <input type="password"
+                                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                            placeholder="Enter your password" name="password" required
+                                            autocomplete="current-password">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Password</label>
+                                        <input type="password"
+                                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                            placeholder="Confirm your password" name="password_confirmation" required
+                                            autocomplete="new-password">
+                                        @error('password_confirmation')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+                                        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
+                    <div class="text-center mt-3">
+                        Already have account? <a href="{{ url('/login') }}">Log In</a>
+                    </div>
                 </div>
             </div>
         </div>
