@@ -13,37 +13,78 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form>
+                            <form method="POST" action="{{ url('admin/categories') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" name="name"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Name">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Slug</label>
-                                    <input type="text" class="form-control" placeholder="Slug">
+                                    <input type="text" name="slug"
+                                        class="form-control @error('slug') is-invalid @enderror" placeholder="Slug">
+                                    @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
                                     @include('layouts.inc.quill-toolbar')
                                     <div id="quill-editor"></div>
-                                    <input type="hidden">
+                                    <input type="hidden" class="form-control @error('description') is-invalid @enderror"
+                                        name="description">
+                                    @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label w-100">Image</label>
-                                    <input type="file" class="form-control">
+                                    <input type="file" name="image"
+                                        class="form-control @error('image') is-invalid @enderror">
                                     <small class="form-text text-muted">Please upload category image.</small>
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Meta Title</label>
-                                    <input type="text" class="form-control" placeholder="Meta Title">
+                                    <input type="text" name="meta_title"
+                                        class="form-control @error('meta_title') is-invalid @enderror"
+                                        placeholder="Meta Title">
+                                    @error('meta_title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Meta Description</label>
-                                    <textarea class="form-control" placeholder="Meta Description" rows="3"></textarea>
+                                    <textarea name="meta_description"
+                                        class="form-control @error('meta_description') is-invalid @enderror"
+                                        placeholder="Meta Description" rows="3"></textarea>
+                                    @error('meta_description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="mb-3">
+                                {{-- Future Meta Keyword UI --}}
+                                {{-- <div class="mb-3">
                                     <label class="form-label">Meta Keywords</label>
-                                    <select class="form-control choices-multiple" multiple>
+                                    <select class="form-control @error('email') is-invalid @enderror choices-multiple"
+                                        multiple>
                                         <optgroup label="Alaskan/Hawaiian Time Zone">
                                             <option value="AK">Alaska</option>
                                             <option value="HI">Hawaii</option>
@@ -105,16 +146,29 @@
                                             <option value="WV">West Virginia</option>
                                         </optgroup>
                                     </select>
+                                </div> --}}
+                                <div class="mb-3">
+                                    <label class="form-label">Meta Keyword</label>
+                                    <textarea name="meta_keyword"
+                                        class="form-control @error('meta_keyword') is-invalid @enderror"
+                                        placeholder="Meta Keyword" rows="3"></textarea>
+                                    @error('meta_keyword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="displayOnNav" checked>
+                                        <input name="display_on_navbar" class="form-check-input" type="checkbox"
+                                            id="displayOnNav" checked>
                                         <label class="form-check-label" for="displayOnNav">Display on Navigation
                                             Bar</label>
                                     </div>
 
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="status" checked>
+                                        <input name="status" class="form-check-input" type="checkbox" id="status"
+                                            checked>
                                         <label class="form-check-label" for="status">Enable Category</label>
                                     </div>
                                 </div>
@@ -140,8 +194,9 @@
             theme: "snow"
         });
 
+        //For Meta Keyword
         // Choices.js
-        new Choices(document.querySelector(".choices-multiple"));
+        //new Choices(document.querySelector(".choices-multiple"));
     });
 </script>
 @endsection
