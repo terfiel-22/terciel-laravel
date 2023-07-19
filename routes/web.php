@@ -24,8 +24,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 // Admin Routes
 Route::prefix('admin')->middleware('auth','withRole')->group(function () {
     Route::resource('web-settings', WebSettingController::class);
