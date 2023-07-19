@@ -29,9 +29,12 @@ class CategoryController extends Controller
         $publicPath = "uploads/images/category/";
         $data["image"] = $this->imageUploadService->upload($publicPath, $request->image);
         
+        $data["display_on_navbar"] = $request->display_on_navbar == "on" ? "1" : "0";
+        $data["status"] = $request->status == "on" ? "1" : "0";
         $data["slug"] = Str::slug($request->slug);
         $data["created_by"] = Auth::user()->id;
         Category::create($data);
+
         return redirect('admin/categories')->with('status','Category was successfully created.');
     }
 

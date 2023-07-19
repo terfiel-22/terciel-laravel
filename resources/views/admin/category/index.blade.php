@@ -3,6 +3,13 @@
 @section('content')
 <main class="content">
     <div class="container-fluid p-0">
+
+        @if (session('status'))
+        <div class="alert alert-info mb-5 p-4">
+            {{ session('status') }}
+        </div>
+        @endif
+
         <div class="mb-3">
             <h1 class="h3 d-inline align-middle">View all categories.</h1>
         </div>

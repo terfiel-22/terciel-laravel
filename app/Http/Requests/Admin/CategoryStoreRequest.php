@@ -25,13 +25,12 @@ class CategoryStoreRequest extends FormRequest
             'name' => 'required|unique:categories',
             'slug' => 'required|unique:categories',
             'description' => 'required|string',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'nullable|mimes:jpg,jpeg,png',
             'meta_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_keyword' => 'required|string',
-            'display_on_navbar' => 'nullable|boolean',
-            'status' => 'nullable|boolean',
-            'created_by' => 'required|exists:users,id',
+            'display_on_navbar' => 'nullable|string',
+            'status' => 'nullable|string',
         ];
     }
 }
