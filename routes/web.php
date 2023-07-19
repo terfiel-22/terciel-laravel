@@ -27,13 +27,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Admin Routes
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth','withRole')->group(function () {
     Route::resource('web-settings', WebSettingController::class);
     Route::resource('categories', CategoryController::class);
 });
 
 // Master routes
-Route::prefix('master')->group(function(){
+Route::prefix('master')->middleware('auth','withRole')->group(function(){
 
     Route::get('/', [PageController::class, 'analytics']);
     Route::get('/profile', [PageController::class, 'profile']);
