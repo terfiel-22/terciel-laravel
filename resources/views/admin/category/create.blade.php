@@ -39,8 +39,8 @@
                                     <label class="form-label">Description</label>
                                     @include('layouts.inc.quill-toolbar')
                                     <div id="quill-editor"></div>
-                                    <input type="hidden" class="form-control @error('description') is-invalid @enderror"
-                                        name="description">
+                                    <input type="hidden" name="description" id="hidden-description"
+                                        class="form-control @error('description') is-invalid @enderror">
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -192,6 +192,16 @@
             },
             placeholder: "Description",
             theme: "snow"
+        });
+
+        $('form').on('submit',function(e){
+            const DEFAULT_DESCRRIPTION_VALUE = "<p><br></p>";
+            if($('.ql-editor').html() === DEFAULT_DESCRRIPTION_VALUE)
+            {
+                $('#hidden-description').val('');
+                return;
+            }
+            $('#hidden-description').val($('.ql-editor').html());
         });
 
         //For Meta Keyword
