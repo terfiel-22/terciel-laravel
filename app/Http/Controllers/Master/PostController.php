@@ -44,4 +44,10 @@ class PostController extends Controller
         Post::create($data);
         return redirect('master/posts')->with('status','The post was created successfully.');
     }
+
+    public function edit(Post $post)
+    {
+        $categories = Category::query()->where('status','1')->get();
+        return view('master.post.edit',compact('categories','post'));
+    }
 }

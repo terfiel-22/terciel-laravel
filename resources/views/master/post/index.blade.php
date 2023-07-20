@@ -45,7 +45,7 @@
                                                 data-bs-toggle="dropdown">Actions</button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{ url('admin/posts/'.$post->id.'/edit') }}">Edit</a>
+                                                    href="{{ url('master/posts/'.$post->id.'/edit') }}">Edit</a>
                                                 <a class="dropdown-item deleteCategoryButton" href=""
                                                     id="{{ $post->id }}" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal">Delete</a>
