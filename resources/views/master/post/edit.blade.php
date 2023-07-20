@@ -19,13 +19,20 @@
                                 @method('PATCH')
                                 <div class="mb-3">
                                     <label class="form-label">Category</label>
-                                    <select class="form-select" name="category_id">
+                                    <select class="form-select @error('category_id') is-invalid @enderror"
+                                        name="category_id">
                                         <option hidden selected value="">Select a category...</option>
                                         @foreach ($categories as $category)
                                         <option value=" {{ $category->id }}" {{ $post->category_id==$category->
                                             id?'selected':'' }}>{{ $category->name }}</option>
                                         @endforeach
+                                        <option value="121">Error</option>
                                     </select>
+                                    @error('category_id')
+                                    <span class=" invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
