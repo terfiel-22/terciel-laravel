@@ -30,15 +30,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($categories as $category)
                                 <tr>
-                                    <td>HTML</td>
-                                    <td>html-introduction</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->slug }}</td>
                                     <td>
-                                        <img src="https://i.pinimg.com/564x/b6/92/ff/b692ff3cf901603d82267313868798ee.jpg"
-                                            alt="HTML" width="50" height="50">
+                                        <img src="{{ asset($category->image) }}" alt="HTML" width="50" height="50">
                                     </td>
-                                    <td>Visible</td>
-                                    <td>Enabled</td>
+                                    <td>{{ $category->display_on_navbar==1?'Visible':'Hidden' }}</td>
+                                    <td>{{ $category->status==1?'Enabled':'Disabled' }}</td>
                                     <td>
                                         <div class="input-group">
                                             <button type="button" class="btn dropdown-toggle"
@@ -50,6 +50,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
