@@ -13,7 +13,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form>
+                            <form method="POST" action="{{ url('master/posts') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Category</label>
                                     <select class="form-select">
@@ -25,34 +26,76 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" name="name"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Name">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Slug</label>
-                                    <input type="text" class="form-control" placeholder="Slug">
+                                    <input type="text" name="slug"
+                                        class="form-control @error('slug') is-invalid @enderror" placeholder="Slug">
+                                    @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
                                     @include('layouts.inc.quill-toolbar')
                                     <div id="quill-editor"></div>
-                                    <input type="hidden">
+                                    <input type="hidden" name="description" id="hidden-description"
+                                        class="form-control @error('description') is-invalid @enderror">
+                                    @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label w-100">Image</label>
-                                    <input type="file" class="form-control">
-                                    <small class="form-text text-muted">Please upload post image.</small>
+                                    <input type="file" name="image"
+                                        class="form-control @error('image') is-invalid @enderror" id="image">
+                                    <img src="" alt="Invalid image." width="100" height="100" id="post-image"
+                                        class="d-none">
+                                    <p class="form-text text-muted">Upload post image.</p>
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Meta Title</label>
-                                    <input type="text" class="form-control" placeholder="Meta Title">
+                                    <input type="text" name="meta_title"
+                                        class="form-control @error('meta_title') is-invalid @enderror"
+                                        placeholder="Meta Title">
+                                    @error('meta_title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Meta Description</label>
-                                    <textarea class="form-control" placeholder="Meta Description" rows="3"></textarea>
+                                    <textarea name="meta_description"
+                                        class="form-control @error('meta_description') is-invalid @enderror"
+                                        placeholder="Meta Description" rows="3"></textarea>
+                                    @error('meta_description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="mb-3">
+                                {{-- Future Meta Keyword UI --}}
+                                {{-- <div class="mb-3">
                                     <label class="form-label">Meta Keywords</label>
-                                    <select class="form-control choices-multiple" multiple>
+                                    <select class="form-control @error('email') is-invalid @enderror choices-multiple"
+                                        multiple>
                                         <optgroup label="Alaskan/Hawaiian Time Zone">
                                             <option value="AK">Alaska</option>
                                             <option value="HI">Hawaii</option>
@@ -114,13 +157,27 @@
                                             <option value="WV">West Virginia</option>
                                         </optgroup>
                                     </select>
+                                </div> --}}
+                                <div class="mb-3">
+                                    <label class="form-label">Meta Keyword</label>
+                                    <textarea name="meta_keyword"
+                                        class="form-control @error('meta_keyword') is-invalid @enderror"
+                                        placeholder="Meta Keyword" rows="3"></textarea>
+                                    @error('meta_keyword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+                                @if (Auth::user()->role == 1)
                                 <div class="mb-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="status" checked>
-                                        <label class="form-check-label" for="status">Enable Post</label>
+                                        <input name="status" class="form-check-input" type="checkbox" id="status"
+                                            checked>
+                                        <label class="form-check-label" for="status">Enable Posts</label>
                                     </div>
                                 </div>
+                                @endif
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
@@ -143,8 +200,24 @@
             theme: "snow"
         });
 
+        $('#image').on('change',function(e){
+            $('#post-image').attr('class','d-block mt-3');
+            $('#post-image').attr('src',URL.createObjectURL(event.target.files[0]));
+        });
+
+        $('form').on('submit',function(e){
+            const DEFAULT_DESCRRIPTION_VALUE = "<p><br></p>";
+            if($('.ql-editor').html() === DEFAULT_DESCRRIPTION_VALUE)
+            {
+                $('#hidden-description').val('');
+                return;
+            }
+            $('#hidden-description').val($('.ql-editor').html());
+        });
+
+        //For Meta Keyword
         // Choices.js
-        new Choices(document.querySelector(".choices-multiple"));
+        //new Choices(document.querySelector(".choices-multiple"));
     });
 </script>
 @endsection
