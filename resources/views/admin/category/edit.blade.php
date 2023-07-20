@@ -5,7 +5,7 @@
     <div class="container-fluid p-0">
 
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">Create a category.</h1>
+            <h1 class="h3 d-inline align-middle">Update a category.</h1>
         </div>
 
         <div class="row">
@@ -13,8 +13,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form method="POST" action="{{ url('admin/categories') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('admin/categories/'.$category->id) }}"
+                                enctype="multipart/form-data">
                                 @csrf
+                                @method('PATCH')
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" name="name"

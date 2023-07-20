@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryStoreRequest;
+use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\Auth;
@@ -47,5 +48,21 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('admin.category.edit')->with('category',$category);
+    }
+
+    public function update(CategoryUpdateRequest $request, Category $category)
+    {
+        $data = $request->validated();
+
+        $folderName = "category";
+        $data["image"] = $this->imageUploadService->upload($folderName, $request->image,$category->image);
+        
+        $data["display_on_navbar"] = $request->display_on_navbar == "on" ? "1" : "0";
+        $data["status"] = $request->status == "on" ? "1" : "0";
+        $data["slug"] = Str::slug($request->slug);
+        $data["created_by"] = Auth::user()->id;
+
+        $category->update($data);
+        return redirect('admin/categories')->with('status','Category was successfully updated.');
     }
 }
