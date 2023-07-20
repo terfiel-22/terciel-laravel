@@ -4,17 +4,19 @@
 
     class ImageUploadService 
     {
-        public function upload($publicPath,$newImage,$oldImage=null,$fileSuffix='')
+        public function upload($folderName,$newImage,$oldImage=null,$fileSuffix='')
         {
             if (!is_null($newImage)) {
                 if(File::exists($oldImage))
                 {
                     File::delete($oldImage);
                 }
+                $folderName = 'images/' . $folderName . '/';
+                $uploadPath = "app/public/" . $folderName; 
                 $imageName = time() . $fileSuffix ."." . $newImage->getClientOriginalExtension();
-                $path = public_path($publicPath);
+                $path = storage_path($uploadPath);
                 $newImage->move($path, $imageName);
-                return $publicPath . $imageName;
+                return "storage/" . $folderName . $imageName;
             }
             return $oldImage;
         }

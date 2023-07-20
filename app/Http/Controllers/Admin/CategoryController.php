@@ -27,8 +27,8 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        $publicPath = "uploads/images/category/";
-        $data["image"] = $this->imageUploadService->upload($publicPath, $request->image);
+        $folderName = "category";
+        $data["image"] = $this->imageUploadService->upload($folderName, $request->image);
         
         $data["display_on_navbar"] = $request->display_on_navbar == "on" ? "1" : "0";
         $data["status"] = $request->status == "on" ? "1" : "0";
