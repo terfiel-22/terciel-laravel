@@ -1,6 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="d-inline" method="POST" id="deleteCategoryForm">
+                @csrf
+                @method("DELETE")
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this category?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -46,7 +68,9 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
                                                     href="{{ url('admin/categories/'.$category->id.'/edit') }}">Edit</a>
-                                                <a class="dropdown-item" href="#delete">Delete</a>
+                                                <a class="dropdown-item deleteCategoryButton" href=""
+                                                    id="{{ $category->id }}" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -68,6 +92,12 @@
         // Datatables Responsive
         $("#datatables-reponsive").DataTable({
             responsive: true
+        });
+
+        $(document).on('click','.deleteCategoryButton',function(e){
+            e.preventDefault();
+            var category_id = $(this).attr('id');
+            $('#deleteCategoryForm').attr('action', 'categories/'+category_id);
         });
     });
 </script>

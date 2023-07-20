@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -42,7 +43,7 @@ class CategoryController extends Controller
         $data["created_by"] = Auth::user()->id;
         Category::create($data);
 
-        return redirect('admin/categories')->with('status','Category was successfully created.');
+        return redirect('admin/categories')->with('status','The category was created successfully.');
     }
 
     public function edit(Category $category)
@@ -63,6 +64,16 @@ class CategoryController extends Controller
         $data["created_by"] = Auth::user()->id;
 
         $category->update($data);
-        return redirect('admin/categories')->with('status','Category was successfully updated.');
+        return redirect('admin/categories')->with('status','The category was updated successfully.');
+    }
+
+    public function destroy(Category $category)
+    {
+        if (File::exists($category->image)) {
+            File::delete($category->image);
+        }
+
+        $category->delete();
+        return redirect('admin/categories')->with('status', 'The category was deleted successfully.');
     }
 }

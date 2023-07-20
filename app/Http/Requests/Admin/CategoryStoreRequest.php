@@ -25,7 +25,7 @@ class CategoryStoreRequest extends FormRequest
             'name' => 'required|unique:categories',
             'slug' => 'required|unique:categories',
             'description' => 'required|string',
-            'image' => 'nullable|mimes:jpg,jpeg,png',
+            'image' => 'required|mimes:jpg,jpeg,png',
             'meta_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_keyword' => 'required|string',
