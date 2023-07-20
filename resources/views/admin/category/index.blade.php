@@ -44,7 +44,8 @@
                                             <button type="button" class="btn dropdown-toggle"
                                                 data-bs-toggle="dropdown">Actions</button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#edit">Edit</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ url('admin/categories/'.$category->id.'/edit') }}">Edit</a>
                                                 <a class="dropdown-item" href="#delete">Delete</a>
                                             </div>
                                         </div>

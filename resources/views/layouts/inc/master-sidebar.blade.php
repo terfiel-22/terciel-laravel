@@ -97,19 +97,21 @@
 
             @if (Auth::user()->role == 1)
             <li
-                class="sidebar-item {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? 'active':'' }}">
+                class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') ||Request::is('admin/categories/create') ? 'active':'' }}">
                 <a data-bs-target="#categories" data-bs-toggle="collapse"
-                    class="sidebar-link {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? '':'collapsed' }}">
+                    class="sidebar-link {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') ||Request::is('admin/categories/create') ? '':'collapsed' }}">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
                 </a>
                 <ul id="categories"
-                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/categories')||Request::is('admin/categories/create') ? 'show':'' }}"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') ||Request::is('admin/categories/create') ? 'show':'' }}"
                     data-bs-parent="#sidebar">
                     <li class="sidebar-item {{ Request::is('admin/categories/create') ? 'active':'' }}"><a
                             class="sidebar-link" href="{{ url('admin/categories/create') }}">Add Category</a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('admin/categories') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('admin/categories') }}">View Categories</a></li>
+                    <li
+                        class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit')  ? 'active':'' }}">
+                        <a class="sidebar-link" href="{{ url('admin/categories') }}">View Categories</a>
+                    </li>
                 </ul>
             </li>
             <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
