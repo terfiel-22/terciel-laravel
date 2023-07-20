@@ -20,7 +20,8 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('master.post.index');
+        $posts = Post::all();
+        return view('master.post.index')->with('posts',$posts);
     }
 
     public function create()
