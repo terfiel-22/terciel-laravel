@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Master;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class PostStoreRequest extends FormRequest
 {
@@ -21,6 +22,8 @@ class PostStoreRequest extends FormRequest
      */
     public function rules(): array
     {
+        $this->request->set('slug', Str::slug($this->request->get('slug')));
+
         return [
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|unique:posts',

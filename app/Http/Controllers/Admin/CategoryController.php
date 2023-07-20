@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -39,7 +38,6 @@ class CategoryController extends Controller
         
         $data["display_on_navbar"] = $request->display_on_navbar == "on" ? "1" : "0";
         $data["status"] = $request->status == "on" ? "1" : "0";
-        $data["slug"] = Str::slug($request->slug);
         $data["created_by"] = Auth::user()->id;
         Category::create($data);
 
@@ -60,7 +58,6 @@ class CategoryController extends Controller
         
         $data["display_on_navbar"] = $request->display_on_navbar == "on" ? "1" : "0";
         $data["status"] = $request->status == "on" ? "1" : "0";
-        $data["slug"] = Str::slug($request->slug);
         $data["created_by"] = Auth::user()->id;
 
         $category->update($data);

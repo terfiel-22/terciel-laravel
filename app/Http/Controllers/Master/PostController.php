@@ -10,7 +10,6 @@ use App\Models\Post;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -40,7 +39,6 @@ class PostController extends Controller
         $data["image"] = $this->imageUploadService->upload($folderName, $request->image);
         
         $data["status"] = $request->status == "on" ? "1" : "0";
-        $data["slug"] = Str::slug($request->slug);
         $data["created_by"] = Auth::user()->id;
         Post::create($data);
         return redirect('master/posts')->with('status','The post was created successfully.');
@@ -60,7 +58,6 @@ class PostController extends Controller
         $data["image"] = $this->imageUploadService->upload($folderName, $request->image,$post->image);
         
         $data["status"] = $request->status == "on" ? "1" : "0";
-        $data["slug"] = Str::slug($request->slug);
         $data["created_by"] = Auth::user()->id;
         
         $post->update($data);
@@ -74,7 +71,7 @@ class PostController extends Controller
         }
 
         $post->delete();
-        
+
         return redirect('master/posts')->with('status','The post was deleted successfully.');
     }
 }

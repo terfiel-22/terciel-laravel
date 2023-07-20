@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class CategoryStoreRequest extends FormRequest
 {
@@ -21,6 +22,8 @@ class CategoryStoreRequest extends FormRequest
      */
     public function rules(): array
     {
+        $this->request->set('slug', Str::slug($this->request->get('slug')));
+        
         return [
             'name' => 'required|unique:categories',
             'slug' => 'required|unique:categories',
