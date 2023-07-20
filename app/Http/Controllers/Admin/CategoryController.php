@@ -23,6 +23,11 @@ class CategoryController extends Controller
         return view('admin.category.index')->with('categories',$categories);
     }
 
+    public function create()
+    {
+        return view('admin.category.create');
+    }
+
     public function store(CategoryStoreRequest $request)
     {
         $data = $request->validated();
@@ -39,8 +44,8 @@ class CategoryController extends Controller
         return redirect('admin/categories')->with('status','Category was successfully created.');
     }
 
-    public function create()
+    public function edit(Category $category)
     {
-        return view('admin.category.create');
+        return view('admin.category.edit')->with('category',$category);
     }
 }
