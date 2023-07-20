@@ -73,7 +73,14 @@ class CategoryController extends Controller
             File::delete($category->image);
         }
 
+        $category->posts->each(function ($post) {
+            if (File::exists($post->image)) {
+                File::delete($post->image);
+            }
+            $post->delete();
+        });
         $category->delete();
+        
         return redirect('admin/categories')->with('status', 'The category was deleted successfully.');
     }
 }
