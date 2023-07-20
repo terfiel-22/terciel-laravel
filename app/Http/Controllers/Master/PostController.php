@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -14,6 +14,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('master.post.create');
+        $categories = Category::query()->where('status','1')->get();
+        return view('master.post.create')->with('categories',$categories);
     }
 }

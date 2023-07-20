@@ -17,10 +17,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">Category</label>
                                     <select class="form-select">
-                                        <option>Select a category...</option>
-                                        <option>One</option>
-                                        <option>Two</option>
-                                        <option>Three</option>
+                                        <option hidden selected value="">Select a category...</option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
