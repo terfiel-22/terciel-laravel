@@ -20,16 +20,18 @@
                                     <select class="form-select" name="category_id">
                                         <option hidden selected value="">Select a category...</option>
                                         @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value=" {{ $category->id }}" {{ old('category_id')==$category->
+                                            id?'selected':'' }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" name="name"
-                                        class="form-control @error('name') is-invalid @enderror" placeholder="Name">
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Name"
+                                        value="{{ old('name') }}">
                                     @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class=" invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -37,7 +39,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Slug</label>
                                     <input type="text" name="slug"
-                                        class="form-control @error('slug') is-invalid @enderror" placeholder="Slug">
+                                        class="form-control @error('slug') is-invalid @enderror" placeholder="Slug"
+                                        value="{{ old('slug') }}">
                                     @error('slug')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -47,7 +50,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
                                     @include('layouts.inc.quill-toolbar')
-                                    <div id="quill-editor"></div>
+                                    <div id="quill-editor">{!! old('description') !!}</div>
                                     <input type="hidden" name="description" id="hidden-description"
                                         class="form-control @error('description') is-invalid @enderror">
                                     @error('description')
@@ -73,7 +76,7 @@
                                     <label class="form-label">Meta Title</label>
                                     <input type="text" name="meta_title"
                                         class="form-control @error('meta_title') is-invalid @enderror"
-                                        placeholder="Meta Title">
+                                        placeholder="Meta Title" value="{{ old('meta_title') }}">
                                     @error('meta_title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -84,7 +87,7 @@
                                     <label class="form-label">Meta Description</label>
                                     <textarea name="meta_description"
                                         class="form-control @error('meta_description') is-invalid @enderror"
-                                        placeholder="Meta Description" rows="3"></textarea>
+                                        placeholder="Meta Description" rows="3">{{ old('meta_description') }}</textarea>
                                     @error('meta_description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -162,7 +165,7 @@
                                     <label class="form-label">Meta Keyword</label>
                                     <textarea name="meta_keyword"
                                         class="form-control @error('meta_keyword') is-invalid @enderror"
-                                        placeholder="Meta Keyword" rows="3"></textarea>
+                                        placeholder="Meta Keyword" rows="3">{{ old('meta_keyword') }}</textarea>
                                     @error('meta_keyword')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -172,8 +175,8 @@
                                 @if (Auth::user()->role == 1)
                                 <div class="mb-3">
                                     <div class="form-check form-switch">
-                                        <input name="status" class="form-check-input" type="checkbox" id="status"
-                                            checked>
+                                        <input name="status" class="form-check-input" type="checkbox" id="status" {{
+                                            old('status')=="on" ?'checked':'' }}>
                                         <label class="form-check-label" for="status">Enable Posts</label>
                                     </div>
                                 </div>
