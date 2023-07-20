@@ -32,6 +32,16 @@ data-sidebar-layout: default (default), compact
 --}}
 
 <body data-theme="dark" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @yield('modal-form')
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper">
         @include('layouts.inc.master-sidebar')
 
@@ -43,6 +53,7 @@ data-sidebar-layout: default (default), compact
             @include('layouts.inc.master-footer')
         </div>
     </div>
+
     @yield('scripts')
 </body>
 

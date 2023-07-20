@@ -26,7 +26,6 @@
                                         <option value=" {{ $category->id }}" {{ $post->category_id==$category->
                                             id?'selected':'' }}>{{ $category->name }}</option>
                                         @endforeach
-                                        <option value="121">Error</option>
                                     </select>
                                     @error('category_id')
                                     <span class=" invalid-feedback" role="alert">

@@ -26,7 +26,7 @@ class PostUpdateRequest extends FormRequest
             'name' => 'required|unique:posts,name,'.$this->post->id,
             'slug' => 'required|unique:posts,slug,'.$this->post->id,
             'description' => 'required|string',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'nullable|mimes:jpg,jpeg,png',
             'meta_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_keyword' => 'required|string',
