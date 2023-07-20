@@ -50,8 +50,10 @@
                                 <div class="mb-3">
                                     <label class="form-label w-100">Image</label>
                                     <input type="file" name="image"
-                                        class="form-control @error('image') is-invalid @enderror">
-                                    <small class="form-text text-muted">Please upload category image.</small>
+                                        class="form-control @error('image') is-invalid @enderror" id="image">
+                                    <img src="" alt="Invalid image." width="100" height="100" id="category-image"
+                                        class="d-none">
+                                    <p class="form-text text-muted">Upload category image.</p>
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -192,6 +194,11 @@
             },
             placeholder: "Description",
             theme: "snow"
+        });
+
+        $('#image').on('change',function(e){
+            $('#category-image').attr('class','d-block mt-3');
+            $('#category-image').attr('src',URL.createObjectURL(event.target.files[0]));
         });
 
         $('form').on('submit',function(e){
