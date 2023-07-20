@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -64,5 +65,16 @@ class PostController extends Controller
         
         $post->update($data);
         return redirect('master/posts')->with('status','The post was updated successfully.');
+    }
+
+    public function destroy(Post $post)
+    {
+        if (File::exists($post->image)) {
+            File::delete($post->image);
+        }
+
+        $post->delete();
+        
+        return redirect('master/posts')->with('status','The post was deleted successfully.');
     }
 }

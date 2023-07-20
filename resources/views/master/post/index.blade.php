@@ -1,6 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="d-inline" method="POST" id="deletePostForm">
+                @csrf
+                @method("DELETE")
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this post?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -46,9 +68,8 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
                                                     href="{{ url('master/posts/'.$post->id.'/edit') }}">Edit</a>
-                                                <a class="dropdown-item deleteCategoryButton" href=""
-                                                    id="{{ $post->id }}" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteModal">Delete</a>
+                                                <a class="dropdown-item deletePostButton" href="" id="{{ $post->id }}"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -71,6 +92,12 @@
         // Datatables Responsive
         $("#datatables-reponsive").DataTable({
             responsive: true
+        });
+
+        $(document).on('click','.deletePostButton',function(e){
+            e.preventDefault();
+            var post_id = $(this).attr('id');
+            $('#deletePostForm').attr('action', 'posts/'+post_id);
         });
     });
 </script>
