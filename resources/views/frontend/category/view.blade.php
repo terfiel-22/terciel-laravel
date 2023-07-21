@@ -5,17 +5,17 @@
     <div class="container-fluid p-0">
 
         <div class="mb-3">
-            <h1>Category: {{ $category->name }}</h1>
+            <h1><span class="text-muted">Category:</span> {{ $category->name }}</h1>
         </div>
         <hr />
         <div class="row py-4">
             <div class="col-lg-8">
                 <div class="mb-5">
-                    @forelse ($category->posts as $latestPost)
+                    @forelse ($posts as $latestPost)
                     <div class="row mb-4">
                         <div class="col-lg-4">
                             <img src="{{ asset($latestPost->image) }}" alt="{{ $latestPost->name }}"
-                                class="img-thumbnail">
+                                class="img-fluid rounded">
                         </div>
                         <div class="col-lg-8">
                             <div class="mb-2">
@@ -24,7 +24,7 @@
                             </div>
                             <div class="mb-2">
                                 <h2>{{ $latestPost->name }}</h2>
-                                <p class="text-truncate">{{ $latestPost->meta_description }}</p>
+                                <p class="text-info text-truncate">{{ $latestPost->meta_description }}</p>
                                 <a href="{{ url('blog/'.$latestPost->category->slug.'/'.$latestPost->slug) }}"
                                     class="btn btn-outline-info">Read more</a>
                             </div>
@@ -34,6 +34,7 @@
                     <h2 class="text-muted">No available post.</h2>
                     @endforelse
                 </div>
+                {{ $posts->links() }}
             </div>
             <div class="col-lg-4">
                 <div class="mb-5">
@@ -51,7 +52,7 @@
                     <h2>Popular Posts</h2>
                     <hr>
                     <ul class="list-unstyled">
-                        @forelse ($category->posts as $popularPost)
+                        @forelse ($popularPosts as $popularPost)
                         <li>
                             <a href="{{ url('blog/'.$popularPost->category->slug.'/'.$popularPost->slug) }}"
                                 class="text-decoration-none">

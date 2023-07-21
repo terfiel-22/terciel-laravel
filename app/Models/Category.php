@@ -30,6 +30,6 @@ class Category extends Model
 
     public function posts() : HasMany
     {
-        return $this->hasMany(Post::class)->latest()->where('status','1');
+        return $this->hasMany(Post::class)->where('status','1');
     }
 }

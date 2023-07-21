@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
@@ -20,7 +18,9 @@ class FrontendController extends Controller
 
         if($category)
         {
-            return view('frontend.category.view')->with('category',$category);
+            $posts = $category->posts()->paginate(5);
+            $popularPosts = $category->posts()->limit(3)->get();
+            return view('frontend.category.view',compact('category','posts','popularPosts'));
         }
         return redirect('/');
     }
@@ -31,11 +31,12 @@ class FrontendController extends Controller
 
         if($category)
         {
-            $post = Post::query()->where('category_id',$category->id)->where('slug',$post_slug)->where('status','1')->first();
+            $post = $category->posts()->where('slug',$post_slug)->where('status','1')->first();
+            $latestPosts = $category->posts()->latest()->limit(3)->get();
             if($post)
-                return view('frontend.category.post.view')->with('post',$post);
+                return view('frontend.category.post.view',compact('post','latestPosts'));
         }
 
-        return redirect('blog/'.$category->slug);
+        return redirect('blog/'.$category_slug);
     }
 }

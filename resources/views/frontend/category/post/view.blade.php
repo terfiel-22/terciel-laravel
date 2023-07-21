@@ -34,21 +34,21 @@
                 </div>
 
                 <div class="mb-5">
-                    <h2>Related Post</h2>
+                    <h2>Latest Posts</h2>
                     <hr>
                     <ul class="list-unstyled">
-                        @forelse ($post->category->posts as $relatedPost)
+                        @forelse ($latestPosts as $latestPost)
                         <li>
-                            <a href="{{ url('blog/'.$relatedPost->category->slug.'/'.$relatedPost->slug) }}"
+                            <a href="{{ url('blog/'.$latestPost->category->slug.'/'.$latestPost->slug) }}"
                                 class="text-decoration-none">
                                 <div class="row mb-4">
                                     <div class="col-lg-7">
-                                        <img src="{{ asset($relatedPost->image) }}" alt="{{ $relatedPost->name }}"
+                                        <img src="{{ asset($latestPost->image) }}" alt="{{ $latestPost->name }}"
                                             class="img-fluid rounded">
                                     </div>
                                     <div class="col-lg-5">
-                                        <h4>{{ $relatedPost->name }}</h4>
-                                        <p class="text-muted">{{ $relatedPost->created_at }}</p>
+                                        <h4>{{ $latestPost->name }}</h4>
+                                        <p class="text-muted">{{ $latestPost->created_at }}</p>
                                     </div>
                                 </div>
                             </a>
