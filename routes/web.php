@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Master\PostController;
 use App\Http\Controllers\Admin\WebSettingController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Master\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+// Guest Routes
 Auth::routes();
+Route::get('/', [FrontendController::class,'index']);
+Route::get('/{category_slug}', [FrontendController::class,'viewCategory']);
 
 // Admin Routes
 Route::prefix('admin')->middleware('auth','withRole')->group(function () {

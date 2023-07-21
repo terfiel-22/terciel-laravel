@@ -11,7 +11,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/')?'active':'' }}" href="{{ url('/') }}">Home</a>
+                </li>
+                @php
+                use App\Models\Category;
+                $categories =
+                Category::query()->where('display_on_navbar','1')->where('status','1')->get();
+                @endphp
+                @foreach ($categories as $category)
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is($category->slug)?'active':'' }}"
+                        href="{{ url($category->slug) }}">{{ $category->name }}</a>
+                </li>
+                @endforeach
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -20,13 +33,15 @@
                 @guest
                 @if (Route::has('login'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}">{{
+                        __('Login') }}</a>
                 </li>
                 @endif
 
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}">{{
+                        __('Register') }}</a>
                 </li>
                 @endif
                 @else
