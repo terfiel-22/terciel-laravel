@@ -6,6 +6,13 @@
 
         <div class="mb-3">
             <h1>{{ $post->name }}</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('blog/'.$post->category->slug) }}">{{
+                            $post->category->name }}</a></li>
+                    <li class="breadcrumb-item active">{{ $post->name }}</li>
+                </ol>
+            </nav>
         </div>
         <hr />
         <div class="row py-4">
@@ -30,23 +37,25 @@
                     <h2>Related Post</h2>
                     <hr>
                     <ul class="list-unstyled">
-                        @foreach ($post->category->posts as $post_item)
+                        @forelse ($post->category->posts as $relatedPost)
                         <li>
-                            <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
+                            <a href="{{ url('blog/'.$relatedPost->category->slug.'/'.$relatedPost->slug) }}"
                                 class="text-decoration-none">
                                 <div class="row mb-4">
                                     <div class="col-lg-7">
-                                        <img src="{{ asset($post_item->image) }}" alt="{{ $post_item->name }}"
+                                        <img src="{{ asset($relatedPost->image) }}" alt="{{ $relatedPost->name }}"
                                             class="img-fluid rounded">
                                     </div>
                                     <div class="col-lg-5">
-                                        <h4>{{ $post_item->name }}</h4>
-                                        <p class="text-muted">{{ $post_item->created_at }}</p>
+                                        <h4>{{ $relatedPost->name }}</h4>
+                                        <p class="text-muted">{{ $relatedPost->created_at }}</p>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        @endforeach
+                        @empty
+                        <h4 class="text-muted">No available post.</h4>
+                        @endforelse
                     </ul>
                 </div>
 
