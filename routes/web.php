@@ -23,7 +23,10 @@ use Illuminate\Support\Facades\Route;
 // Guest Routes
 Auth::routes();
 Route::get('/', [FrontendController::class,'index']);
-Route::get('/blog/{category_slug}', [FrontendController::class,'viewCategory']);
+Route::prefix('blog')->group(function(){
+    Route::get('{category_slug}', [FrontendController::class,'viewCategory']);
+    Route::get('{category_slug}/{post_slug}', [FrontendController::class,'viewPost']);
+});
 
 // Admin Routes
 Route::prefix('admin')->middleware('auth','withRole')->group(function () {
