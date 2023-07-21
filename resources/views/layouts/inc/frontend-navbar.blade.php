@@ -21,8 +21,8 @@
                 @endphp
                 @foreach ($categories as $category)
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is($category->slug)?'active':'' }}"
-                        href="{{ url($category->slug) }}">{{ $category->name }}</a>
+                    <a class="nav-link {{ Request::is('blog/'.$category->slug)?'active':'' }}"
+                        href="{{ url('blog/'.$category->slug) }}">{{ $category->name }}</a>
                 </li>
                 @endforeach
             </ul>
