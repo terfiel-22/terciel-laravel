@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Post;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('frontend.home');
     }
 
     public function viewCategory($category_slug)
@@ -22,7 +21,7 @@ class FrontendController extends Controller
             $popularPosts = $category->posts()->limit(3)->get();
             return view('frontend.category.view',compact('category','posts','popularPosts'));
         }
-        return redirect('/');
+        return view('errors.404');
     }
 
     public function viewPost($category_slug, $post_slug)
@@ -37,6 +36,6 @@ class FrontendController extends Controller
                 return view('frontend.category.post.view',compact('post','latestPosts'));
         }
 
-        return redirect('blog/'.$category_slug);
+        return view('errors.404');
     }
 }
