@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-light navbar-bg">
     <div class="container-fluid">
         <a href="{{ url('/') }}" class="text-decoration-none">
-            <h1>Terciel<span class="text-secondary">.</span></h1>
+            <h1>Terciel<span class="text-danger">.</span></h1>
         </a>
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ms-auto">

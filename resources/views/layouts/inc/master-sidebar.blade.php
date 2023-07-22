@@ -2,7 +2,7 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ url('/') }}">
             <span class="sidebar-brand-text align-middle">
-                Terciel<span class="text-primary">.</span>
+                <h1>Terciel<span class="text-danger">.</span></h1>
             </span>
             <svg class="sidebar-brand-icon align-middle" width="32px" height="32px" viewBox="0 0 24 24" fill="none"
                 stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" color="#FFFFFF"
