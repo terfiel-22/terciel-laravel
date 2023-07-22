@@ -6,11 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
-class UserModelTest extends TestCase
+class RegistrationTest extends TestCase
 {
     use WithoutMiddleware;
     use RefreshDatabase;
-
+ 
     public function test_user_can_be_created_on_valid_data()
     {
         $userDataForRegistrationForm = [
@@ -41,4 +41,5 @@ class UserModelTest extends TestCase
         $response = $this->json('POST','/register', $userData);
         $response->assertUnprocessable();
     }
+
 }
