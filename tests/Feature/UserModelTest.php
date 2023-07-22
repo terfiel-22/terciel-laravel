@@ -3,23 +3,42 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\User;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 class UserModelTest extends TestCase
 {
+    use WithoutMiddleware;
     use RefreshDatabase;
-    public function test_user_can_be_created()
+
+    public function test_user_can_be_created_on_valid_data()
+    {
+        $userDataForRegistrationForm = [
+            'name' => 'Terciel Kenway',
+            'email' => 'terciel@example.com',
+            'password' => 'password123',
+            'password_confirmation' => 'password123',
+        ];
+        $response = $this->json('POST','/register', $userDataForRegistrationForm);
+        $response->assertCreated();
+
+        $userDataOnDatabase = [
+            'name' => 'Terciel Kenway',
+            'email' => 'terciel@example.com',
+        ];
+        $this->assertDatabaseHas('users',$userDataOnDatabase);
+    }
+
+    public function test_user_can_not_be_created_on_invalid_data()
     {
         $userData = [
             'name' => 'John Doe',
-            'email' => 'john@example.com',
-            'password' => bcrypt('password123'),
+            'email' => 'johexampleom',
+            'password' => 'password123',
+            'password_confirmation' => 'passwford123',
         ];
-
-        $user = User::create($userData);
-
-        $this->assertInstanceOf(User::class, $user);
-        $this->assertDatabaseHas('users', $userData);
+        
+        $response = $this->json('POST','/register', $userData);
+        $response->assertUnprocessable();
     }
 }
