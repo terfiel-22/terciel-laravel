@@ -35,6 +35,9 @@ data-sidebar-layout: default (default), compact
     <div class="wrapper">
         <div class="main">
             @include('layouts.inc.frontend-navbar')
+            @if(!(Request::is('login')||Request::is('register')))
+            @include('layouts.inc.frontend-navbar-ext')
+            @endif
 
             @yield('content')
 

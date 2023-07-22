@@ -23,17 +23,6 @@
             </div>
             <div class="col-lg-4">
                 <div class="mb-5">
-                    <form class="d-none d-sm-inline-block w-100">
-                        <div class="input-group input-group-navbar">
-                            <input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-                            <button class="btn" type="button">
-                                <i data-feather="search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="mb-5">
                     <h2>Latest Posts</h2>
                     <hr>
                     <ul class="list-unstyled">
