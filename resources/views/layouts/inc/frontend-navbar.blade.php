@@ -9,15 +9,19 @@
             @guest
             @if (Route::has('login'))
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}">{{
-                    __('Login') }}</a>
+                <a class="nav-link fw-bold {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}">
+                    <span data-feather="lock" class="me-1"></span>
+                    {{__('Login') }}
+                </a>
             </li>
             @endif
 
             @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}">{{
-                    __('Register') }}</a>
+                <a class="nav-link fw-bold {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}">
+                    <span data-feather="user" class="me-1"></span>
+                    {{__('Register') }}
+                </a>
             </li>
             @endif
             @else

@@ -8,15 +8,15 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/')?'active':'' }}"
+                    <a class="nav-link fw-bold {{ Request::is('/')?'active':'' }}"
                         href="{{ url('/') }}">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('about')?'active':'' }}"
+                    <a class="nav-link fw-bold {{ Request::is('about')?'active':'' }}"
                         href="{{ url('/about') }}">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle {{ Request::is('blog/*')||Request::is('result')?'active':'' }}" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link fw-bold dropdown-toggle {{ Request::is('blog/*')||Request::is('result')?'active':'' }}" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							CATEGORIES
 						</a>
 						<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
@@ -32,7 +32,7 @@
 						</div>
 					</li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('contact')?'active':'' }}"
+                    <a class="nav-link fw-bold {{ Request::is('contact')?'active':'' }}"
                         href="{{ url('/contact') }}">CONTACT</a>
                 </li>
             </ul>
