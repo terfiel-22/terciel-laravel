@@ -46,10 +46,12 @@ class FrontendController extends Controller
         $keyword = $request->input('keyword');
 
         $posts = Post::query()
+            ->where(function($query) use ($keyword){
+                $query->where('meta_title', 'LIKE', "%{$keyword}%")
+                    ->orWhere('meta_description', 'LIKE', "%{$keyword}%")
+                    ->orWhere('meta_keyword', 'LIKE', "%{$keyword}%");
+            })
             ->where('status','1')
-            ->where('meta_title', 'LIKE', "%{$keyword}%")
-            ->orWhere('meta_description', 'LIKE', "%{$keyword}%")
-            ->orWhere('meta_keyword', 'LIKE', "%{$keyword}%")
             ->latest()
             ->paginate(5);
 
