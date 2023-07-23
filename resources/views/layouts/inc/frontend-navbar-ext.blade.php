@@ -8,7 +8,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/')?'active':'' }}" href="{{ url('/') }}">Home</a>
+                    <a class="nav-link {{ Request::is('/')||Request::is('result')?'active':'' }}"
+                        href="{{ url('/') }}">Home</a>
                 </li>
                 @php
                 use App\Models\Category;
@@ -24,10 +25,11 @@
             </ul>
         </div>
 
-        <form class="d-none d-sm-inline-block">
+        <form method="GET" action="/result" class="d-none d-sm-inline-block">
             <div class="input-group input-group-navbar">
-                <input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-                <button class="btn" type="button">
+                <input type="text" name="keyword" class="form-control" placeholder="Search…" aria-label="Search"
+                    value="{{ Request::is('result')?$keyword:'' }}">
+                <button class="btn" type="submit">
                     <i data-feather="search"></i>
                 </button>
             </div>

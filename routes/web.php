@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 // Guest Routes
 Auth::routes();
 Route::get('/', [FrontendController::class,'index']);
+Route::get('/result', [FrontendController::class,'viewSearchResult']);
 Route::prefix('blog')->group(function(){
     Route::get('{category_slug}', [FrontendController::class,'viewCategory']);
     Route::get('{category_slug}/{post_slug}', [FrontendController::class,'viewPost']);

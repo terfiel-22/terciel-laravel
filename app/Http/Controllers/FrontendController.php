@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
+use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
@@ -37,5 +39,22 @@ class FrontendController extends Controller
         }
 
         return view('errors.404');
+    }
+
+    public function viewSearchResult(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $posts = Post::query()
+            ->where('status','1')
+            ->where('meta_title', 'LIKE', "%{$keyword}%")
+            ->orWhere('meta_description', 'LIKE', "%{$keyword}%")
+            ->orWhere('meta_keyword', 'LIKE', "%{$keyword}%")
+            ->latest()
+            ->paginate(5);
+
+        $popularPosts = Post::query()->where('status','1')->limit(3)->get();
+
+        return view('frontend.search-result', compact('keyword','posts','popularPosts'));
     }
 }
