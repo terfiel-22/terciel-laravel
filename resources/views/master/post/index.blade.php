@@ -10,8 +10,9 @@
         </div>
         @endif
 
-        <div class="mb-3">
+        <div class="d-flex justify-content-between mb-3">
             <h1 class="h3 d-inline align-middle">View all posts.</h1>
+            <a href="{{ url('master/posts/create') }}" class="btn btn-info">Add post</a>
         </div>
 
         <div class="row">

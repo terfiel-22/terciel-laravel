@@ -10,8 +10,9 @@
         </div>
         @endif
 
-        <div class="mb-3">
+        <div class="d-flex justify-content-between mb-3">
             <h1 class="h3 d-inline align-middle">View all categories.</h1>
+            <a href="{{ url('admin/categories/create') }}" class="btn btn-info">Add category</a>
         </div>
 
         <div class="row">

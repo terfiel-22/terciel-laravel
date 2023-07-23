@@ -4,8 +4,9 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <div class="mb-3">
+        <div class="d-flex justify-content-between mb-3">
             <h1 class="h3 d-inline align-middle">Update a category.</h1>
+            <a href="{{ url('admin/categories/') }}" class="btn btn-info">View categories</a>
         </div>
 
         <div class="row">
