@@ -13,6 +13,16 @@ class FrontendController extends Controller
         return view('frontend.home');
     }
 
+    public function viewAbout()
+    {
+        return view('frontend.about');
+    }
+
+    public function viewContact()
+    {
+        return view('frontend.contact');
+    }
+
     public function viewCategory($category_slug)
     {
         $category = Category::query()->where('slug',$category_slug)->where('status','1')->first();
