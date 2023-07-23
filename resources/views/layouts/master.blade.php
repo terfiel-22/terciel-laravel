@@ -12,4 +12,5 @@
         @include('layouts.inc.master-footer')
     </div>
 </div>
+@yield('scripts')
 @endsection
