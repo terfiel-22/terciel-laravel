@@ -3,20 +3,22 @@
 @section('content')
 <main>
     <div
-        class="swiffy-slider slider-item-ratio slider-item-ratio-2x1 slider-item-snapstart slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-touch slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-highlight slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow">
+        class="swiffy-slider slider-item-ratio slider-item-ratio-2x1 slider-item-nogap slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow">
         <ul class="slider-container">
             <li id="slide1" class="bg-image">
                 <img src="https://swiffyslider.com/assets/img/photos/img1.webp" class="w-100" />
-                <div class="mask text-light d-flex justify-content-center flex-column text-start"
-                    style="background-color: rgba(0, 0, 0, 0.5)">
-                    <h1 class="ms-5" style="font-size: 8vw;">Create a lifestyle <br> you desire.</h1>
+                <div class="mask text-light d-flex justify-content-center flex-column text-start image-text-container">
+                    <div class="col-8 ms-4">
+                        <h1 class="image-text">Create a lifestyle you desire.</h1>
+                    </div>
                 </div>
             </li>
             <li id="slide1" class="bg-image">
                 <img src="https://swiffyslider.com/assets/img/photos/img2.webp" class="w-100" />
-                <div class="mask text-light d-flex justify-content-center flex-column text-start"
-                    style="background-color: rgba(0, 0, 0, 0.5)">
-                    <h1 class="ms-5" style="font-size: 8vw;">Engaging purposeful<br>and creative.</h1>
+                <div class="mask text-light d-flex justify-content-center flex-column text-start image-text-container">
+                    <div class="col-9 ms-4">
+                        <h1 class="image-text">Engaging purposeful and creative.</h1>
+                    </div>
                 </div>
             </li>
             <li id="slide3"><img src="https://swiffyslider.com/assets/img/photos/img3.webp" alt="..." loading="lazy">
