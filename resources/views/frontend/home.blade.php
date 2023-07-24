@@ -175,8 +175,8 @@
             <div class="col-lg-8">
                 <div class="row">
                     @forelse ($featuredPosts as $post_item)
-                    <div class="col-lg-6">
-                        <div class="card">
+                    <div class="col-lg-6 mb-5">
+                        <div class="card shadow h-100">
                             <img class="card-img-top" src="{{ $post_item->image }}" alt="{{ $post_item->name }}">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">Card with image and button</h5>
