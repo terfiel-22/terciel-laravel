@@ -21,6 +21,8 @@
     {{-- @vite(['resources/css/dark.css', 'resources/js/app.js']) --}}
 
     @vite(['resources/css/dark.css', 'resources/js/app.js', 'resources/js/datatables.js'])
+
+    @yield('add-ons')
     <title>Terciel &mdash; Blog</title>
 </head>
 {{--

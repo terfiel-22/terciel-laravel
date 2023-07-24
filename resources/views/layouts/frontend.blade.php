@@ -1,5 +1,12 @@
 @extends('app')
 
+@section('add-ons')
+<script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+    defer></script>
+<link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+@endsection
+
 @section('app-content')
 <div class="wrapper">
     <div class="main">
