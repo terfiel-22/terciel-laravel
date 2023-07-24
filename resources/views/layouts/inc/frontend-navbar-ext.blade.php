@@ -8,29 +8,30 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link fw-bold {{ Request::is('/')?'active':'' }}"
-                        href="{{ url('/') }}">HOME</a>
+                    <a class="nav-link fw-bold {{ Request::is('/')?'active':'' }}" href="{{ url('/') }}">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fw-bold {{ Request::is('about')?'active':'' }}"
                         href="{{ url('/about') }}">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-						<a class="nav-link fw-bold dropdown-toggle {{ Request::is('blog/*')||Request::is('result')?'active':'' }}" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							CATEGORIES
-						</a>
-						<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                            @php
-                            use App\Models\Category;
-                            $categories =
-                            Category::query()->where('display_on_navbar','1')->where('status','1')->get();
-                            @endphp
-                            @foreach ($categories as $category)
-                                <a class="dropdown-item {{ Request::is('blog/'.$category->slug)||Request::is('blog/'.$category->slug.'/*')?'active':'' }}"
-                                    href="{{ url('blog/'.$category->slug) }}">{{ $category->name }}</a>
-                            @endforeach
-						</div>
-					</li>
+                    <a class="nav-link fw-bold dropdown-toggle {{ Request::is('blog/*')||Request::is('result')?'active':'' }}"
+                        href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        CATEGORIES
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                        @php
+                        use App\Models\Category;
+                        $categories =
+                        Category::query()->where('display_on_navbar','1')->where('status','1')->get();
+                        @endphp
+                        @foreach ($categories as $category)
+                        <a class="dropdown-item {{ Request::is('blog/'.$category->slug)||Request::is('blog/'.$category->slug.'/*')?'active':'' }}"
+                            href="{{ url('blog/'.$category->slug) }}">{{ $category->name }}</a>
+                        @endforeach
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link fw-bold {{ Request::is('contact')?'active':'' }}"
                         href="{{ url('/contact') }}">CONTACT</a>
@@ -40,8 +41,7 @@
 
         <form method="GET" action="/result" class="d-none d-sm-inline-block">
             <div class="input-group input-group-navbar">
-                <input type="text" name="keyword" class="form-control" placeholder="Search…" aria-label="Search"
-                    value="{{ Request::is('result')?$keyword:'' }}">
+                <input type="text" name="keyword" class="form-control" placeholder="Search…" aria-label="Search">
                 <button class="btn" type="submit">
                     <i data-feather="search"></i>
                 </button>

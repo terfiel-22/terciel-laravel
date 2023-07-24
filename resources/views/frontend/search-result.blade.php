@@ -4,12 +4,12 @@
 <main class="content">
     <div class="container-fluid p-0">
         <div class="mb-3">
-            <h1><span class="text-muted">Keyword:</span> {{ $keyword }}</h1>
+            <h1><span class="text-muted">Search result:</h1>
         </div>
         <hr />
         <div class="row py-4">
             <div class="col-lg-8">
-                <div class="mb-5">
+                <div class="mb-5 min-vh-100">
                     @forelse ($posts as $latestPost)
                     <div class="row mb-4">
                         <div class="col-lg-4">
@@ -30,7 +30,14 @@
                         </div>
                     </div>
                     @empty
-                    <h2 class="text-muted">No available post.</h2>
+                    <ul class="list-unstyled">
+                        <li class="text-danger">Sorry, your search for <span
+                                class="text-decoration-underline fw-bold text-dark">{{
+                                $keyword
+                                }}</span>
+                            returned zero result.</li>
+                        <li class="text-muted">Try being more specific with key words.</li>
+                    </ul>
                     @endforelse
                 </div>
                 {{ $posts->links() }}
