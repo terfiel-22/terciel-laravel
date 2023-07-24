@@ -1,9 +1,10 @@
 @extends('layouts.frontend')
 
 @section('content')
-<main>
+
+<section class="banner">
     <div
-        class="swiffy-slider slider-item-ratio slider-item-ratio-2x1 slider-item-nogap slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow">
+        class="swiffy-slider slider-item-ratio slider-item-ratio-2x1 slider-item-nogap slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow mb-5">
         <ul class="slider-container">
             <li id="slide1" class="bg-image">
                 <img src="https://swiffyslider.com/assets/img/photos/img1.webp" class="w-100" />
@@ -43,15 +44,123 @@
             <button aria-label="Go to slide"></button>
         </div>
     </div>
-    <div class="content">
-        <div class="container-fluid p-0">
-            <div class="mb-3">
-                <h1 class="h3 d-inline align-middle">Landing Page</h1>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>Display Categories</p>
+    <div
+        class="swiffy-slider slider-item-show5 slider-item-nogap slider-item-ratio slider-item-ratio-1x1 slider-item-snapstart slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-outside slider-nav-page slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow">
+        <ul class="slider-container">
+            <li class="slide-visible">
+                <div class="px-1" id="slide1">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 1 with image and button</h5>
+                        </div>
+                    </div>
                 </div>
+            </li>
+            <li class="slide-visible">
+                <div class="px-1" id="slide2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 2 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slide-visible">
+                <div class="px-1" id="slide3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 3 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slide-visible">
+                <div class="px-1" id="slide4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 4 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slide-visible">
+                <div class="px-1" id="slide5">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 5 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="">
+                <div class="px-1" id="slide6">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 6 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="">
+                <div class="px-1" id="slide7">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 7 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="">
+                <div class="px-1" id="slide8">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 8 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="">
+                <div class="px-1" id="slide9">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 9 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="">
+                <div class="px-1" id="slide10">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/photos/unsplash-2.jpg') }}" alt="Unsplash">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card 10 with image and button</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" class="slider-nav"></button>
+        <button type="button" class="slider-nav slider-nav-next"></button>
+    </div>
+</section>
+<main class="content">
+    <div class="container-fluid p-0">
+        <div class="mb-3">
+            <h1 class="h3 d-inline align-middle">Landing Page</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Display Categories</p>
             </div>
         </div>
     </div>
