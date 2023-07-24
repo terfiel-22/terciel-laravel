@@ -18,3 +18,8 @@
 #animatedText.slider-nav-animation #container1 img{
     height: 100%;
 }
+
+.card-img-top 
+{
+    height: 100% !important;
+}
