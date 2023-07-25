@@ -180,8 +180,10 @@
                     <a href="#" class="text-decoration-none text-dark">
                         <div class="col">
                             <div class="shadow">
-                                <img class="card-img-top img-thumbnail h-100" src="{{ $post_item->image }}"
-                                    alt="{{ $post_item->name }}">
+                                <div class="ratio ratio-16x9">
+                                    <img class="card-img-top img-thumbnail h-100" src="{{ $post_item->image }}"
+                                        alt="{{ $post_item->name }}">
+                                </div>
                                 <div class="card-header mb-2">
                                     <h2 class="card-text">{{ $post_item->name }}</h2>
                                 </div>
