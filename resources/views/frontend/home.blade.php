@@ -1,7 +1,9 @@
 @extends('layouts.frontend')
 
 @section('content')
-<section class="banner">
+
+{{-- Banner --}}
+<section>
     <div class="swiffy-slider slider-item-nogap slider-item-ratio slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow"
         id="animatedText">
 
@@ -63,8 +65,12 @@
             <button aria-label="Go to slide"></button>
         </div>
     </div>
+</section>
 
-    <div class="m-5">
+<main class="content">
+    <div class="container-fluid p-0">
+
+        {{-- Featured Posts --}}
         <div
             class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-chevron slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein">
             <ul class="slider-container p-4 bg-light">
@@ -84,7 +90,8 @@
                                     <div class="text-muted">
                                         <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}
                                         <br>
-                                        <span data-feather="calendar" class="me-2"></span>{{ $post_item->created_at }}
+                                        <span data-feather="calendar" class="me-2"></span>{{ $post_item->created_at
+                                        }}
                                         <br>
                                     </div>
                                 </div>
@@ -98,11 +105,8 @@
             <button type="button" class="slider-nav" aria-label="Go left"></button>
             <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
         </div>
-    </div>
-</section>
 
-<main class="content">
-    <div class="container-fluid p-0">
+        {{-- Other Posts --}}
         <div class="row">
             <div class="col-lg-8 mb-5">
                 <div class="row row-cols-lg-2 g-3">
