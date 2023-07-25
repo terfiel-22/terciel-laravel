@@ -75,10 +75,10 @@
                             <img src="{{ asset($post_item->image) }}" class="h-100 img-thumbnail" loading="lazy"
                                 alt="...">
                         </div>
-                        <div
-                            class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0 bg-light opacity-75">
+                        <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                            id="image-text-container">
                             <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
-                                class="text-decoration-none opacity-100">
+                                class="text-decoration-none">
                                 <div class="p-3">
                                     <h2>{{ $post_item->name }}</h2>
                                     <div class="text-muted">
