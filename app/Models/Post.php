@@ -32,7 +32,7 @@ class Post extends Model
     protected function createdAt(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Carbon::create($value)->format('D, M. d, Y'),
+            get: fn ($value) => Carbon::create($value)->format('M. d, Y'),
         );
     }
 

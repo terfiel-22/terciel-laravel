@@ -71,12 +71,14 @@
                 @foreach ($allPosts as $post_item)
                 <li>
                     <div class="card shadow h-100">
-                        <div class="ratio ratio-16x9">
-                            <img src="{{ asset($post_item->image) }}" class="card-img-top" loading="lazy" alt="...">
+                        <div class="ratio ratio-4x3">
+                            <img src="{{ asset($post_item->image) }}" class="card-img-top h-100" loading="lazy"
+                                alt="...">
                         </div>
                         <div class="card-body p-3 d-flex flex-column justify-content-between">
                             <div>
                                 <h2>{{ $post_item->name }}</h2>
+                                <p class="text-truncate ">{{ $post_item->meta_description }}</p>
                                 <p><span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}</p>
                                 <p><span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }}</p>
                             </div>
@@ -177,7 +179,7 @@
                     @forelse ($featuredPosts as $post_item)
                     <div class="col-lg-6 mb-5">
                         <div class="card shadow h-100">
-                            <img class="card-img-top" src="{{ $post_item->image }}" alt="{{ $post_item->name }}">
+                            <img class="card-img-top h-100" src="{{ $post_item->image }}" alt="{{ $post_item->name }}">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">Card with image and button</h5>
                             </div>
@@ -220,12 +222,21 @@
                                 class="text-decoration-none">
                                 <div class="row mb-4">
                                     <div class="col-lg-7">
-                                        <img src="{{ asset($olderPost->image) }}" alt="{{ $olderPost->name }}"
-                                            class="img-fluid rounded">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="{{ asset($olderPost->image) }}" alt="{{ $olderPost->name }}"
+                                                class="rounded">
+                                        </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <h4>{{ $olderPost->name }}</h4>
-                                        <p class="text-muted">{{ $olderPost->created_at }}</p>
+                                        <p class="text-muted">
+                                            <span data-feather="user" class="me-1"></span>
+                                            {{ $olderPost->author->name }}
+                                        </p>
+                                        <p class="text-muted">
+                                            <span data-feather="clock" class="me-1"></span>
+                                            {{ $olderPost->created_at }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
