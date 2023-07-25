@@ -37,7 +37,8 @@ class FrontendController extends Controller
             $popularPosts = $category->posts()->limit(3)->get();
             return view('frontend.category.view',compact('category','posts','popularPosts'));
         }
-        return view('errors.404');
+        
+        abort(404);
     }
 
     public function viewPost($category_slug, $post_slug)
@@ -52,7 +53,7 @@ class FrontendController extends Controller
                 return view('frontend.category.post.view',compact('post','latestPosts'));
         }
 
-        return view('errors.404');
+        abort(404);
     }
 
     public function viewSearchResult(Request $request)

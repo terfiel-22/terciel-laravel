@@ -39,7 +39,6 @@ Route::prefix('admin')->middleware('auth','withRole')->group(function () {
 
 // Master routes
 Route::prefix('master')->middleware('auth','withRole')->group(function(){
-
     Route::get('/', [PageController::class, 'analytics']);
     Route::get('/profile', [PageController::class, 'profile']);
     Route::get('/profile/settings', [PageController::class, 'profileSettings']);
