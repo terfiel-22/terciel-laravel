@@ -2,6 +2,7 @@
 
 @section('content')
 <section class="banner">
+
     <div class="swiffy-slider slider-item-nogap slider-item-ratio slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow"
         id="animatedText">
 
@@ -70,27 +71,24 @@
             <ul class="slider-container p-4 bg-light">
                 @foreach ($allPosts as $post_item)
                 <li>
-                    <div class="card shadow h-100">
-                        <div class="ratio ratio-4x3">
-                            <img src="{{ asset($post_item->image) }}" class="card-img-top h-100" loading="lazy"
+                    <div class="shadow">
+                        <div class="bg-image ratio ratio-1x1">
+                            <img src="{{ asset($post_item->image) }}" class="h-100 img-thumbnail" loading="lazy"
                                 alt="...">
                         </div>
-                        <div class="card-body p-3 d-flex flex-column justify-content-between">
-                            <div>
-                                <h2>{{ $post_item->name }}</h2>
-                                <p class="text-truncate ">{{ $post_item->meta_description }}</p>
-                                <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }} <br>
-                                <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
-                                <span data-feather="tag" class="me-2"></span>
-                                @php
-                                $tags = explode(' ',$post_item->meta_keyword)
-                                @endphp
-                                @foreach ($tags as $tag)
-                                <span class="badge bg-info">{{ $tag }}</span>
-                                @endforeach
-                            </div>
+                        <div
+                            class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0 bg-light opacity-75">
                             <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
-                                class="btn btn-danger p-3">READ</a>
+                                class="text-decoration-none opacity-100">
+                                <div class="p-3">
+                                    <h2>{{ $post_item->name }}</h2>
+                                    <div class="text-muted">
+                                        <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}
+                                        <br>
+                                        <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </li>
