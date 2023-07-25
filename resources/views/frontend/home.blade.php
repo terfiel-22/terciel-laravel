@@ -86,7 +86,7 @@
                             <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
                                 class="text-decoration-none">
                                 <div class="p-3">
-                                    <h2>{{ $post_item->name }}</h2>
+                                    <h2 id="image-text">{{ $post_item->name }}</h2>
                                     <div class="text-muted">
                                         <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}
                                         <br>
