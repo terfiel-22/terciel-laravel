@@ -113,14 +113,14 @@
                         class="text-decoration-none text-dark mb-4">
                         <div class="col">
                             <div class="shadow">
-                                <div class="ratio ratio-16x9">
-                                    <img class="card-img-top img-thumbnail h-100" src="{{ $post_item->image }}"
+                                <div class="ratio ratio-16x9 mb-2">
+                                    <img class="img-thumbnail h-100" src="{{ $post_item->image }}"
                                         alt="{{ $post_item->name }}">
                                 </div>
-                                <div class="card-header mb-2">
-                                    <h2 class="card-text">{{ $post_item->name }}</h2>
+                                <div class="mb-2">
+                                    <h2>{{ $post_item->name }}</h2>
                                 </div>
-                                <div class="card-body">
+                                <div class="text-muted">
                                     <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }} <br>
                                     <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
                                     <span data-feather="tag" class="me-2"></span>
