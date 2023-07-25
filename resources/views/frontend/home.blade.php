@@ -175,7 +175,7 @@
                                     <div class="col-lg-7">
                                         <div class="ratio ratio-4x3">
                                             <img src="{{ asset($olderPost->image) }}" alt="{{ $olderPost->name }}"
-                                                class="rounded">
+                                                class="rounded img-thumbnail">
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
