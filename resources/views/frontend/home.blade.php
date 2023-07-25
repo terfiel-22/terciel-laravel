@@ -175,16 +175,30 @@
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-lg-8">
-                <div class="row">
+                <div class="row row-cols-2 g-3">
                     @forelse ($featuredPosts as $post_item)
-                    <div class="col-lg-6 mb-5">
-                        <div class="card shadow h-100">
-                            <img class="card-img-top h-100" src="{{ $post_item->image }}" alt="{{ $post_item->name }}">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Card with image and button</h5>
+                    <a href="#" class="text-decoration-none text-dark">
+                        <div class="col">
+                            <div class="shadow">
+                                <img class="card-img-top img-thumbnail h-100" src="{{ $post_item->image }}"
+                                    alt="{{ $post_item->name }}">
+                                <div class="card-header mb-2">
+                                    <h2 class="card-text">{{ $post_item->name }}</h2>
+                                </div>
+                                <div class="card-body">
+                                    <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }} <br>
+                                    <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
+                                    <span data-feather="tag" class="me-2"></span>
+                                    @php
+                                    $tags = explode(' ',$post_item->meta_keyword)
+                                    @endphp
+                                    @foreach ($tags as $tag)
+                                    <span class="badge bg-info">{{ $tag }}</span>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @empty
                     <h4 class="text-muted">No available post.</h4>
                     @endforelse
