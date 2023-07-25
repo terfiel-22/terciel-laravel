@@ -32,12 +32,19 @@
                                 class="text-decoration-none">
                                 <div class="row mb-4">
                                     <div class="col-lg-7">
-                                        <img src="{{ asset($latestPost->image) }}" alt="{{ $latestPost->name }}"
-                                            class="img-fluid rounded">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="{{ asset($latestPost->image) }}" alt="{{ $latestPost->name }}"
+                                                class="rounded">
+                                        </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <h4>{{ $latestPost->name }}</h4>
-                                        <p class="text-muted">{{ $latestPost->created_at }}</p>
+                                        <p class="text-muted">
+                                            <span data-feather="user" class="me-1"></span>
+                                            {{ $latestPost->author->name }} <br>
+                                            <span data-feather="calendar" class="me-1"></span>
+                                            {{ $latestPost->created_at }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>

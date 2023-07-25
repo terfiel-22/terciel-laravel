@@ -85,7 +85,8 @@
                                     <div class="text-muted">
                                         <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}
                                         <br>
-                                        <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
+                                        <span data-feather="calendar" class="me-2"></span>{{ $post_item->created_at }}
+                                        <br>
                                     </div>
                                 </div>
                             </a>
@@ -112,7 +113,7 @@
                         <div class="col">
                             <div class="shadow">
                                 <div class="ratio ratio-16x9 mb-2">
-                                    <img class="img-thumbnail h-100" src="{{ $post_item->image }}"
+                                    <img class="img-thumbnail h-100" src="{{ asset($post_item->image) }}"
                                         alt="{{ $post_item->name }}">
                                 </div>
                                 <div class="mb-2">
@@ -120,7 +121,7 @@
                                 </div>
                                 <div class="text-muted">
                                     <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }} <br>
-                                    <span data-feather="clock" class="me-2"></span>{{ $post_item->created_at }} <br>
+                                    <span data-feather="calendar" class="me-2"></span>{{ $post_item->created_at }} <br>
                                     <span data-feather="tag" class="me-2"></span>
                                     @php
                                     $tags = explode(' ',$post_item->meta_keyword)
@@ -178,10 +179,8 @@
                                         <h4>{{ $olderPost->name }}</h4>
                                         <p class="text-muted">
                                             <span data-feather="user" class="me-1"></span>
-                                            {{ $olderPost->author->name }}
-                                        </p>
-                                        <p class="text-muted">
-                                            <span data-feather="clock" class="me-1"></span>
+                                            {{ $olderPost->author->name }} <br>
+                                            <span data-feather="calendar" class="me-1"></span>
                                             {{ $olderPost->created_at }}
                                         </p>
                                     </div>
