@@ -32,7 +32,7 @@ Route::prefix('blog')->group(function(){
 });
 
 // Admin Routes
-Route::prefix('admin')->middleware('auth','withRole')->group(function () {
+Route::prefix('admin')->middleware('auth','withRole','isAdmin')->group(function () {
     Route::resource('web-settings', WebSettingController::class);
     Route::resource('categories', CategoryController::class);
 });

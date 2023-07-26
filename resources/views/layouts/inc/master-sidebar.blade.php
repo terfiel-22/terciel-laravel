@@ -116,17 +116,25 @@
             </li>
             <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
                 <a class="sidebar-link" href="{{ url('admin/web-settings') }}">
-                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Website
-                        Settings</span>
-
+                    <i class="align-middle" data-feather="settings"></i>
+                    <span class="align-middle">Website Settings</span>
                 </a>
             </li>
+
+
+            <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
+                <a class="sidebar-link" href="{{ url('admin/web-settings') }}">
+                    <i class="align-middle" data-feather="settings"></i>
+                    <span class="align-middle">Website Settings</span>
+                </a>
+            </li>
+
             @endif
 
             <li class="sidebar-item {{ Request::is('master/tasks') ? 'active':'' }}">
                 <a class="sidebar-link" href="{{ url('master/tasks') }}">
-                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Tasks</span>
-
+                    <i class="align-middle" data-feather="list"></i>
+                    <span class="align-middle">Tasks</span>
                 </a>
             </li>
 
