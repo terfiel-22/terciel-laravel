@@ -12,6 +12,9 @@
                 <div>
                     <img src="https://imgv3.fotor.com/images/share/wonderland-girl-generated-by-Fotor-ai-art-generator.jpg"
                         alt="..." loading="lazy" class="w-100">
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                    id="image-text-container">
                     <h1
                         class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
                         Woman</h1>
@@ -20,6 +23,9 @@
             <li id="slide2">
                 <div>
                     <img src="{{ asset('images/avatars/avatar-3.jpg') }}" alt="..." loading="lazy" class="w-100">
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                    id="image-text-container">
                     <h1
                         class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
                         Woman</h1>
@@ -29,6 +35,9 @@
                 <div>
                     <img src="https://w0.peakpx.com/wallpaper/693/564/HD-wallpaper-empty-snowy-road-at-night.jpg"
                         alt="..." loading="lazy" class="w-100">
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                    id="image-text-container">
                     <h1
                         class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
                         Aston</h1>
@@ -38,6 +47,9 @@
                 <div>
                     <img src="https://swiffyslider.com/assets/img/photos/img4.webp" alt="..." loading="lazy"
                         class="w-100">
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                    id="image-text-container">
                     <h1
                         class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
                         Mountain</h1>
@@ -47,6 +59,9 @@
                 <div>
                     <img src="https://swiffyslider.com/assets/img/photos/img5.webp" alt="..." loading="lazy"
                         class="w-100">
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                    id="image-text-container">
                     <h1
                         class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
                         Car</h1>
