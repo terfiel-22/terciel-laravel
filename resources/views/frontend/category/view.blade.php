@@ -14,8 +14,8 @@
                     <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
                         class="text-decoration-none text-dark mb-4">
                         <div class="col">
-                            <div class="shadow">
-                                <div class="ratio ratio-16x9 mb-2">
+                            <div class="shadow p-3 card">
+                                <div class="ratio ratio-4x3 mb-2">
                                     <img class="img-thumbnail h-100" src="{{ asset($post_item->image) }}"
                                         alt="{{ $post_item->name }}">
                                 </div>
@@ -79,7 +79,7 @@
                                     <div class="col-lg-7">
                                         <div class="ratio ratio-4x3">
                                             <img src="{{ asset($popularPost->image) }}" alt="{{ $popularPost->name }}"
-                                                class="rounded">
+                                                class="rounded img-thumbnail">
                                         </div>
                                     </div>
                                     <div class="col-lg-5">

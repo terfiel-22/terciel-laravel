@@ -86,7 +86,7 @@
                             <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
                                 class="text-decoration-none">
                                 <div class="p-3">
-                                    <h2>{{ $post_item->name }}</h2>
+                                    <h2 id="image-text">{{ $post_item->name }}</h2>
                                     <div class="text-muted">
                                         <span data-feather="user" class="me-2"></span>{{ $post_item->author->name }}
                                         <br>
@@ -114,8 +114,8 @@
                     <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
                         class="text-decoration-none text-dark mb-4">
                         <div class="col">
-                            <div class="shadow">
-                                <div class="ratio ratio-16x9 mb-2">
+                            <div class="shadow p-3 card">
+                                <div class="ratio ratio-4x3 mb-2">
                                     <img class="img-thumbnail h-100" src="{{ asset($post_item->image) }}"
                                         alt="{{ $post_item->name }}">
                                 </div>
@@ -175,7 +175,7 @@
                                     <div class="col-lg-7">
                                         <div class="ratio ratio-4x3">
                                             <img src="{{ asset($olderPost->image) }}" alt="{{ $olderPost->name }}"
-                                                class="rounded">
+                                                class="rounded img-thumbnail">
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -195,18 +195,6 @@
                         @endforelse
                     </ul>
                 </div>
-                {{-- <div class="mb-5">
-                    <h2>Tags</h2>
-                    <hr>
-                    <div class="mb-1">
-                        @php
-                        $tags = explode(' ',$category->meta_keyword)
-                        @endphp
-                        @foreach ($tags as $tag)
-                        <span class="badge bg-info">{{ $tag }}</span>
-                        @endforeach
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
