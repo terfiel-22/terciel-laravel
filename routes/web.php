@@ -34,7 +34,7 @@ Route::prefix('blog')->group(function(){
 // Admin Routes
 Route::prefix('admin')->middleware('auth','withRole','isAdmin')->group(function () {
     Route::get('settings/website', [SettingController::class,'websiteSettings']);
-    Route::get('settings/website/update', [SettingController::class,'websiteSettings']);
+    Route::post('settings/website/update', [SettingController::class,'websiteSettingsUpdate']);
 
     Route::get('settings/banner', [SettingController::class,'bannerSettings']);
 
