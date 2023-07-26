@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Master\PostController;
-use App\Http\Controllers\Admin\WebSettingController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Master\PageController;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +33,11 @@ Route::prefix('blog')->group(function(){
 
 // Admin Routes
 Route::prefix('admin')->middleware('auth','withRole','isAdmin')->group(function () {
-    Route::resource('web-settings', WebSettingController::class);
+    Route::get('settings/website', [SettingController::class,'websiteSettings']);
+    Route::get('settings/website/update', [SettingController::class,'websiteSettings']);
+
+    Route::get('settings/banner', [SettingController::class,'bannerSettings']);
+
     Route::resource('categories', CategoryController::class);
 });
 

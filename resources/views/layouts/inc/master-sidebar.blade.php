@@ -79,19 +79,21 @@
             </li>
 
             <li
-                class="sidebar-item {{ Request::is('master/posts')||Request::is('master/posts/create') ? 'active':'' }}">
+                class="sidebar-item {{ Request::is('master/posts')||Request::is('master/posts/create')||Request::is('master/posts/*/edit') ? 'active':'' }}">
                 <a data-bs-target="#posts" data-bs-toggle="collapse"
-                    class="sidebar-link {{ Request::is('master/posts')||Request::is('master/posts/create') ? '':'collapsed' }}">
+                    class="sidebar-link {{ Request::is('master/posts')||Request::is('master/posts/create')||Request::is('master/posts/*/edit') ? '':'collapsed' }}">
                     <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Posts</span>
                 </a>
                 <ul id="posts"
-                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('master/posts')||Request::is('master/posts/create') ? 'show':'' }}"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('master/posts')||Request::is('master/posts/create')||Request::is('master/posts/*/edit') ? 'show':'' }}"
                     data-bs-parent="#sidebar">
                     <li class="sidebar-item {{ Request::is('master/posts/create') ? 'active':'' }}"><a
                             class="sidebar-link" href="{{ url('master/posts/create') }}">Add Post</a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('master/posts') ? 'active':'' }}"><a class="sidebar-link"
-                            href="{{ url('master/posts') }}">View Posts</a></li>
+                    <li
+                        class="sidebar-item {{ Request::is('master/posts')||Request::is('master/posts/*/edit') ? 'active':'' }}">
+                        <a class="sidebar-link" href="{{ url('master/posts') }}">View Posts</a>
+                    </li>
                 </ul>
             </li>
 
@@ -114,21 +116,24 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
-                <a class="sidebar-link" href="{{ url('admin/web-settings') }}">
-                    <i class="align-middle" data-feather="settings"></i>
-                    <span class="align-middle">Website Settings</span>
+
+            <li
+                class="sidebar-item {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'active':'' }}">
+                <a data-bs-target="#settings" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? '':'collapsed' }}">
+                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
                 </a>
+                <ul id="settings"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'show':'' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/settings/website') ? 'active':'' }}"><a
+                            class="sidebar-link" href="{{ url('admin/settings/website') }}">Website</a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('admin/settings/banner')  ? 'active':'' }}">
+                        <a class="sidebar-link" href="{{ url('admin/settings/banner') }}">Banner</a>
+                    </li>
+                </ul>
             </li>
-
-
-            <li class="sidebar-item {{ Request::is('admin/web-settings') ? 'active':'' }}">
-                <a class="sidebar-link" href="{{ url('admin/web-settings') }}">
-                    <i class="align-middle" data-feather="settings"></i>
-                    <span class="align-middle">Website Settings</span>
-                </a>
-            </li>
-
             @endif
 
             <li class="sidebar-item {{ Request::is('master/tasks') ? 'active':'' }}">
