@@ -36,10 +36,22 @@
                                     <label class="form-label w-100">Website Icon</label>
                                     <input type="file" name="icon"
                                         class="form-control @error('icon') is-invalid @enderror" id="icon">
-                                    <img src="{{ asset($webSetting->icon??'icon.png') }}" alt="Icon." width="100"
+                                    <img src="{{ asset($webSetting->icon??'icon.png') }}" alt="Icon" width="100"
                                         height="100" id="website-icon" class="p-2">
                                     <p class="form-text text-muted" id="image-des">Default icon for title bar.</p>
                                     @error('icon')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Meta Author</label>
+                                    <input type="text" name="meta_author"
+                                        class="form-control @error('meta_author') is-invalid @enderror"
+                                        placeholder="Meta Author"
+                                        value="{{ $webSetting->meta_author??old('meta_author') }}">
+                                    @error('meta_author')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

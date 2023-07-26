@@ -1,7 +1,10 @@
+@php
+$webSetting = App\Models\WebSetting::query()->where('id','1')->first();
+@endphp
 <nav class="navbar navbar-expand navbar-light navbar-bg">
     <div class="container-fluid">
         <a href="{{ url('/') }}" class="text-decoration-none">
-            <h1>Terciel<span class="text-danger">.</span></h1>
+            <h1>{{ $webSetting->name }}<span class="text-danger">.</span></h1>
         </a>
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ms-auto">

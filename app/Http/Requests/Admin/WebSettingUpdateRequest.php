@@ -23,7 +23,8 @@ class WebSettingUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'icon' => 'nullable|mimes:jpg,jpeg,png',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,svg',
+            'meta_author' => 'required|string',
             'meta_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_keyword' => 'required|string',

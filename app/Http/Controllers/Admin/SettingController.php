@@ -41,9 +41,6 @@ class SettingController extends Controller
             if($request->hasFile("icon"))
             {
                 $data["icon"] = $this->imageUploadService->upload($folderName, $request->icon);
-            } else 
-            {
-                $data["icon"] = 'icon.png';
             }
             WebSetting::create($data);
         }

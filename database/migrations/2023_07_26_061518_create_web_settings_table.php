@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('web_settings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
+            $table->string('icon')->nullable();
+            $table->string('meta_author');
             $table->string('meta_title');
             $table->text('meta_description');
             $table->text('meta_keyword');

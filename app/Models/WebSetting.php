@@ -12,6 +12,7 @@ class WebSetting extends Model
     protected $fillable = [
         'name',
         'icon',
+        'meta_author',
         'meta_title',
         'meta_description',
         'meta_keyword',

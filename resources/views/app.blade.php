@@ -2,12 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @php
+    $webSetting = App\Models\WebSetting::query()->where('id','1')->first();
+    @endphp
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <meta name="author" content="Untree.co">
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap5" />
+    <link rel="shortcut icon" href="{{ asset($webSetting->icon??'icon.png') }}">
+    <meta name="author" content="{{ $webSetting->author??'Terciel Kenway' }}">
+    <meta name="description" content="{{ $webSetting->meta_description??'Blog Website' }}" />
+    <meta name="keywords" content="{{ $webSetting->keyword??'Blog,Website' }}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,7 +26,7 @@
     @vite(['resources/css/style.css','resources/css/dark.css', 'resources/js/app.js', 'resources/js/datatables.js'])
 
     @yield('add-ons')
-    <title>Terciel &mdash; Blog</title>
+    <title>{{ $webSetting->meta_title??'Terciel' }}</title>
 </head>
 {{--
 HOW TO USE:
