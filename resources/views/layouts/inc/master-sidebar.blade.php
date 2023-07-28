@@ -1,7 +1,7 @@
 @php
-    $webSetting = App\Models\WebSetting::query()
-        ->where('id', '1')
-        ->first();
+$webSetting = App\Models\WebSetting::query()
+->where('id', '1')
+->first();
 @endphp
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
@@ -38,8 +38,7 @@
                         <a class="dropdown-item" href="{{ url('master/settings') }}"><i class="align-middle me-1"
                                 data-feather="settings"></i> Settings &
                             Privacy</a>
-                        <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                data-feather="help-circle"></i>
+                        <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i>
                             Help Center</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
@@ -70,8 +69,8 @@
                 <ul id="profile"
                     class="sidebar-dropdown list-unstyled collapse {{ Request::is('master/profile') || Request::is('master/profile/settings') ? 'show' : '' }}"
                     data-bs-parent="#sidebar">
-                    <li class="sidebar-item {{ Request::is('master/profile') ? 'active' : '' }}"><a
-                            class="sidebar-link" href="{{ url('master/profile') }}">View Profile</a>
+                    <li class="sidebar-item {{ Request::is('master/profile') ? 'active' : '' }}"><a class="sidebar-link"
+                            href="{{ url('master/profile') }}">View Profile</a>
                     </li>
                     <li class="sidebar-item {{ Request::is('master/profile/settings') ? 'active' : '' }}"><a
                             class="sidebar-link" href="{{ url('master/profile/settings') }}">Profile Settings</a></li>
@@ -104,43 +103,62 @@
             </li>
 
             @if (Auth::user()->role == 1)
-                <li
-                    class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? 'active' : '' }}">
-                    <a data-bs-target="#categories" data-bs-toggle="collapse"
-                        class="sidebar-link {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? '' : 'collapsed' }}">
-                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
-                    </a>
-                    <ul id="categories"
-                        class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? 'show' : '' }}"
-                        data-bs-parent="#sidebar">
-                        <li class="sidebar-item {{ Request::is('admin/categories/create') ? 'active' : '' }}"><a
-                                class="sidebar-link" href="{{ url('admin/categories/create') }}">Add Category</a>
-                        </li>
-                        <li
-                            class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') ? 'active' : '' }}">
-                            <a class="sidebar-link" href="{{ url('admin/categories') }}">View Categories</a>
-                        </li>
-                    </ul>
-                </li>
+            <li
+                class="sidebar-item {{ Request::is('admin/banner-slides') || Request::is('admin/banner-slides/create') || Request::is('admin/banner-slides/*/edit') ? 'active' : '' }}">
+                <a data-bs-target="#bannerSlides" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/banner-slides') || Request::is('admin/banner-slides/create') || Request::is('admin/banner-slides/*/edit') ? '' : 'collapsed' }}">
+                    <i class="align-middle" data-feather="film"></i> <span class="align-middle">Banner
+                        Slides</span>
+                </a>
+                <ul id="bannerSlides"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/banner-slides') || Request::is('admin/banner-slides/create') || Request::is('admin/banner-slides/*/edit') ? 'show' : '' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/banner-slides/create') ? 'active' : '' }}"><a
+                            class="sidebar-link" href="{{ url('admin/banner-slides/create') }}">Add Banner Slide</a>
+                    </li>
+                    <li
+                        class="sidebar-item {{ Request::is('admin/banner-slides') || Request::is('admin/banner-slides/*/edit') ? 'active' : '' }}">
+                        <a class="sidebar-link" href="{{ url('admin/banner-slides') }}">View Banner Slides</a>
+                    </li>
+                </ul>
+            </li>
 
-                <li
-                    class="sidebar-item {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'active' : '' }}">
-                    <a data-bs-target="#settings" data-bs-toggle="collapse"
-                        class="sidebar-link {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? '' : 'collapsed' }}">
-                        <i class="align-middle" data-feather="settings"></i> <span
-                            class="align-middle">Settings</span>
-                    </a>
-                    <ul id="settings"
-                        class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'show' : '' }}"
-                        data-bs-parent="#sidebar">
-                        <li class="sidebar-item {{ Request::is('admin/settings/website') ? 'active' : '' }}"><a
-                                class="sidebar-link" href="{{ url('admin/settings/website') }}">Website</a>
-                        </li>
-                        <li class="sidebar-item {{ Request::is('admin/settings/banner') ? 'active' : '' }}">
-                            <a class="sidebar-link" href="{{ url('admin/settings/banner') }}">Banner</a>
-                        </li>
-                    </ul>
-                </li>
+            <li
+                class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? 'active' : '' }}">
+                <a data-bs-target="#categories" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? '' : 'collapsed' }}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
+                </a>
+                <ul id="categories"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') || Request::is('admin/categories/create') ? 'show' : '' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/categories/create') ? 'active' : '' }}"><a
+                            class="sidebar-link" href="{{ url('admin/categories/create') }}">Add Category</a>
+                    </li>
+                    <li
+                        class="sidebar-item {{ Request::is('admin/categories') || Request::is('admin/categories/*/edit') ? 'active' : '' }}">
+                        <a class="sidebar-link" href="{{ url('admin/categories') }}">View Categories</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li
+                class="sidebar-item {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'active' : '' }}">
+                <a data-bs-target="#settings" data-bs-toggle="collapse"
+                    class="sidebar-link {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? '' : 'collapsed' }}">
+                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
+                </a>
+                <ul id="settings"
+                    class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/settings/website') || Request::is('admin/settings/banner') ? 'show' : '' }}"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item {{ Request::is('admin/settings/website') ? 'active' : '' }}"><a
+                            class="sidebar-link" href="{{ url('admin/settings/website') }}">Website</a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('admin/settings/banner') ? 'active' : '' }}">
+                        <a class="sidebar-link" href="{{ url('admin/settings/banner') }}">Banner</a>
+                    </li>
+                </ul>
+            </li>
             @endif
 
             <li class="sidebar-item {{ Request::is('master/tasks') ? 'active' : '' }}">
