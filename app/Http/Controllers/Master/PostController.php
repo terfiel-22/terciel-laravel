@@ -38,6 +38,7 @@ class PostController extends Controller
         $folderName = "post";
         $data["image"] = $this->imageUploadService->upload($folderName, $request->image);
         
+        $data["featured"] = $request->featured == "on" ? "1" : "0";
         $data["status"] = $request->status == "on" ? "1" : "0";
         $data["created_by"] = Auth::user()->id;
         Post::create($data);
@@ -57,6 +58,7 @@ class PostController extends Controller
         $folderName = "post";
         $data["image"] = $this->imageUploadService->upload($folderName, $request->image,$post->image);
         
+        $data["featured"] = $request->featured == "on" ? "1" : "0";
         $data["status"] = $request->status == "on" ? "1" : "0";
         $data["created_by"] = Auth::user()->id;
         

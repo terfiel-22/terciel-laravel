@@ -33,6 +33,7 @@ class PostUpdateRequest extends FormRequest
             'meta_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_keyword' => 'required|string',
+            'featured' => 'nullable|string',
             'status' => 'nullable|string',
         ];
     }

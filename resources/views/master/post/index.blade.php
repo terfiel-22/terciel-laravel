@@ -26,6 +26,7 @@
                                     <th>Name</th>
                                     <th>Slug</th>
                                     <th>Image</th>
+                                    <th>Featured</th>
                                     <th>Status</th>
                                     <th>Operation</th>
                                 </tr>
@@ -39,6 +40,7 @@
                                     <td>
                                         <img src="{{ asset($post->image) }}" alt="HTML" width="50" height="50">
                                     </td>
+                                    <td>{{ $post->featured==1?'Yes':'No' }}</td>
                                     <td>{{ $post->status==1?'Enabled':'Disabled' }}</td>
                                     <td>
                                         <div class="input-group">

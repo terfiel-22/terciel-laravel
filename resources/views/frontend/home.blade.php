@@ -89,7 +89,7 @@
         <div
             class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-chevron slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein">
             <ul class="slider-container p-4 bg-light">
-                @foreach ($allPosts as $post_item)
+                @foreach ($featuredPosts as $post_item)
                 <li>
                     <div class="shadow">
                         <div class="bg-image ratio ratio-1x1">
@@ -125,7 +125,7 @@
         <div class="row">
             <div class="col-lg-8 mb-5">
                 <div class="row row-cols-lg-2 g-3">
-                    @forelse ($featuredPosts as $post_item)
+                    @forelse ($latestPosts as $post_item)
                     <a href="{{ url('blog/'.$post_item->category->slug.'/'.$post_item->slug) }}"
                         class="text-decoration-none text-dark mb-4">
                         <div class="col">

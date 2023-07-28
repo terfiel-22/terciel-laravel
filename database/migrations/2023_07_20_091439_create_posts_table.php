@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('meta_title');
             $table->text('meta_description');
             $table->text('meta_keyword');
+            $table->boolean('featured')->default(0);
             $table->boolean('status')->default(0);
             $table->foreignId('created_by')->constrained(
                 table: 'users', indexName: 'posts_user_id'

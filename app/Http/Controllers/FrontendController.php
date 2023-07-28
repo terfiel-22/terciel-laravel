@@ -11,10 +11,10 @@ class FrontendController extends Controller
     public function index()
     {
         $categories = Category::query()->where('status','1')->get();
-        $allPosts = Post::query()->where('status','1')->latest()->get();
-        $featuredPosts = Post::query()->where('status','1')->latest()->limit(6)->get();
+        $featuredPosts = Post::query()->where('featured','1')->where('status','1')->latest()->limit(6)->get();
+        $latestPosts = Post::query()->where('status','1')->latest()->paginate(6);
         $olderPosts = Post::query()->where('status','1')->oldest()->limit(4)->get();
-        return view('frontend.home',compact('categories','allPosts','featuredPosts','olderPosts'));
+        return view('frontend.home',compact('categories','featuredPosts','latestPosts','olderPosts'));
     }
 
     public function viewAbout()

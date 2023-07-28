@@ -21,11 +21,13 @@ class Post extends Model
         'meta_title',
         'meta_description',
         'meta_keyword',
+        'featured',
         'status',
         'created_by',
     ];
 
     protected $casts = [
+        'featured' => 'boolean',
         'status' => 'boolean',
     ];
 

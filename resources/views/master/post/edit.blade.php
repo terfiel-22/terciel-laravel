@@ -185,9 +185,14 @@
                                 @if (Auth::user()->role == 1)
                                 <div class="mb-3">
                                     <div class="form-check form-switch">
+                                        <input name="featured" class="form-check-input" type="checkbox" id="featured" {{
+                                            $post->featured=="1" ?'checked':'' }}>
+                                        <label class="form-check-label" for="featured">Featured Post</label>
+                                    </div>
+                                    <div class="form-check form-switch">
                                         <input name="status" class="form-check-input" type="checkbox" id="status" {{
                                             $post->status=="1" ?'checked':'' }}>
-                                        <label class="form-check-label" for="status">Enable Posts</label>
+                                        <label class="form-check-label" for="status">Enable Post</label>
                                     </div>
                                 </div>
                                 @endif
