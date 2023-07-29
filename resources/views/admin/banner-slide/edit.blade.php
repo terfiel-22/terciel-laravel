@@ -14,9 +14,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <form method="POST" action="{{ url('admin/banner-slides/') }}"
+                            <form method="POST" action="{{ url('admin/banner-slides/'.$bannerSlide->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
+                                @method('PATCH')
                                 <div class="mb-3">
                                     <label class="form-label">Title</label>
                                     <input type="text" name="title" id="title"

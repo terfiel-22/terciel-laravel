@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BannerSlideStoreRequest;
+use App\Http\Requests\Admin\BannerSlideUpdateRequest;
 use App\Models\BannerSlide;
 use App\Services\ImageUploadService;
 use Illuminate\Support\Facades\File;
@@ -40,9 +41,15 @@ class BannerSlideController extends Controller
         return view('admin.banner-slide.edit')->with('bannerSlide',$bannerSlide);
     }
 
-    public function update()
+    public function update(BannerSlide $bannerSlide, BannerSlideUpdateRequest $request)
     {
-        
+        $data = $request->validated();
+        $folderName = "banner-slide";
+        $data["image"] = $this->imageUploadService->upload($folderName, $request->image,$bannerSlide->image);
+
+        $bannerSlide->update($data);
+
+        return redirect('admin/banner-slides/')->with('status','The banner slide was updated successfully.');
     }
 
     public function destroy(BannerSlide $bannerSlide)

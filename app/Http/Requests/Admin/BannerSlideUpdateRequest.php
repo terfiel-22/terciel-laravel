@@ -23,7 +23,7 @@ class BannerSlideUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:30',
-            'image' => 'required|mimes:jpg,jpeg,png'
+            'image' => 'nullable|mimes:jpg,jpeg,png'
         ];
     }
 }
