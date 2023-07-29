@@ -19,13 +19,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+    {{-- Swiffy Slider --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+        defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
     <!-- Choose your prefered color scheme -->
     {{-- @vite(['resources/css/light.css', 'resources/js/app.js']) --}}
     {{-- @vite(['resources/css/dark.css', 'resources/js/app.js']) --}}
 
     @vite(['resources/css/style.css','resources/css/dark.css', 'resources/js/app.js', 'resources/js/datatables.js'])
 
-    @yield('add-ons')
     <title>{{ $webSetting->meta_title??'Terciel' }}</title>
 </head>
 {{--

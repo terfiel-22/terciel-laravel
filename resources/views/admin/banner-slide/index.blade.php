@@ -19,45 +19,49 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        Display here
+                        <section>
+                            <div class="swiffy-slider slider-item-nogap slider-item-ratio slider-item-nosnap-touch slider-nav-square slider-nav-dark slider-nav-sm slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-nav-animation-slow"
+                                id="animatedText">
+
+                                <ul class="slider-container" id="container1">
+                                    @forelse ($bannerSlides as $bannerSlide)
+                                    <li id="{{ $bannerSlide->id }}" class="">
+                                        <div>
+                                            <img src="{{ asset($bannerSlide->image) }}" alt="..." loading="lazy"
+                                                class="w-100">
+                                        </div>
+                                        <div class="w-100 d-flex flex-column justify-content-between position-absolute bottom-0"
+                                            id="image-text-container">
+                                            <h1
+                                                class="display-1 text-dark custom-animated-text position-absolute top-50 start-50 translate-middle">
+                                                {{ $bannerSlide->title }}
+                                            </h1>
+                                        </div>
+                                        <a href="{{ url('admin/banner-slides/'.$bannerSlide->id.'/edit') }}"></a>
+                                    </li>
+                                    @empty
+
+                                    @endforelse
+                                </ul>
+
+                                <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+                                <button type="button" class="slider-nav slider-nav-next"
+                                    aria-label="Go to next"></button>
+
+                                <div class="slider-indicators">
+                                    @foreach ($bannerSlides as $bannerSlide)
+                                    <button aria-label="Go to slide" class="active"></button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </section>
+                        <p class="text-muted">Click the slide to edit.</p>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </main>
-@endsection
-
-@section('modal-form')
-{{-- <form class="d-inline" method="POST" id="deleteCategoryForm">
-    @csrf
-    @method("DELETE")
-    <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        Are you sure you want to delete this category?
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
-</form> --}}
-@endsection
-
-@section('scripts')
-<script>
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     // Datatables Responsive
-    //     $("#datatables-reponsive").DataTable({
-    //         responsive: true
-    //     });
-
-    //     $(document).on('click','.deleteCategoryButton',function(e){
-    //         e.preventDefault();
-    //         var category_id = $(this).attr('id');
-    //         $('#deleteCategoryForm').attr('action', 'categories/'+category_id);
-    //     });
-    // });
-</script>
 @endsection
