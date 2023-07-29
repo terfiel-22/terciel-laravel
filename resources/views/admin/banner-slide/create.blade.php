@@ -46,7 +46,6 @@
             </div>
         </div>
 
-
         <div id="output" class="d-none">
             <div class="d-flex justify-content-between mb-1">
                 <h1 class="h3 d-inline align-middle">Output</h1>

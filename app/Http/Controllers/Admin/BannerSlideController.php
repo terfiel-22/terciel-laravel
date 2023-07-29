@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BannerSlideStoreRequest;
 use App\Models\BannerSlide;
 use App\Services\ImageUploadService;
+use Illuminate\Support\Facades\File;
 
 class BannerSlideController extends Controller
 {
@@ -34,9 +35,9 @@ class BannerSlideController extends Controller
         return redirect('admin/banner-slides/')->with('status','The banner slide was added successfully.');
     }
 
-    public function edit()
+    public function edit(BannerSlide $bannerSlide)
     {
-        return view('admin.banner-slide.edit');
+        return view('admin.banner-slide.edit')->with('bannerSlide',$bannerSlide);
     }
 
     public function update()
@@ -44,8 +45,14 @@ class BannerSlideController extends Controller
         
     }
 
-    public function destroy()
+    public function destroy(BannerSlide $bannerSlide)
     {
-        
+        if (File::exists($bannerSlide->image)) {
+            File::delete($bannerSlide->image);
+        }
+
+        $bannerSlide->delete();
+
+        return redirect('admin/banner-slides/')->with('status','The banner slide was deleted successfully.');
     }
 }
