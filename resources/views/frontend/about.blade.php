@@ -5,13 +5,26 @@
     <div class="container-fluid p-0">
 
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">About</h1>
+            <h1>About</h1>
         </div>
-
 
         <div class="row">
             <div class="col-lg-8 mb-5">
-                <h1>About</h1>
+                <img src="{{ asset('images/default-about.jpg') }}" alt="Writing" class="img-thumbnail mb-2">
+                <h2 class="mb-2">Terciel Blog| Blogging For Passion</h2>
+                <p>
+                    This is a blog and content management system,You can easily setup your blog and customize it
+                    according
+                    to your needs.It is easy to use and manage.Multiple users can signup and be able contribute
+                    content.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris
+                    nisi ut
+                    aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum
+                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum.
+                </p>
+
+                <hr>
             </div>
             <div class="col-lg-4">
                 <div class="mb-5">
