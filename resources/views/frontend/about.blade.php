@@ -57,13 +57,13 @@
                             <a href="{{ url('blog/'.$olderPost->category->slug.'/'.$olderPost->slug) }}"
                                 class="text-decoration-none">
                                 <div class="row mb-4">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-5">
                                         <div class="ratio ratio-4x3">
                                             <img src="{{ asset($olderPost->image) }}" alt="{{ $olderPost->name }}"
                                                 class="rounded img-thumbnail">
                                         </div>
                                     </div>
-                                    <div class="col-lg-5">
+                                    <div class="col-lg-7">
                                         <h4>{{ $olderPost->name }}</h4>
                                         <p class="text-muted">
                                             <span data-feather="user" class="me-1"></span>
