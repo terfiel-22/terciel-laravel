@@ -47,9 +47,4 @@ class SettingController extends Controller
 
         return redirect('admin/settings/website')->with('status','The website was updated successfully.');
     }
-
-    public function bannerSettings()
-    {
-        return view('admin.settings.banner');
-    }
 }

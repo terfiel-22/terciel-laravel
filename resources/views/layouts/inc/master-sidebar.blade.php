@@ -154,9 +154,6 @@ $webSetting = App\Models\WebSetting::query()
                     <li class="sidebar-item {{ Request::is('admin/settings/website') ? 'active' : '' }}"><a
                             class="sidebar-link" href="{{ url('admin/settings/website') }}">Website</a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('admin/settings/banner') ? 'active' : '' }}">
-                        <a class="sidebar-link" href="{{ url('admin/settings/banner') }}">Banner</a>
-                    </li>
                 </ul>
             </li>
             @endif
