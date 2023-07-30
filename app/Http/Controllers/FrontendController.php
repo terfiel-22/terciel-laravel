@@ -21,7 +21,9 @@ class FrontendController extends Controller
 
     public function viewAbout()
     {
-        return view('frontend.about');
+        $categories = Category::query()->where('status','1')->get();
+        $olderPosts = Post::query()->where('status','1')->oldest()->limit(4)->get();
+        return view('frontend.about',compact('categories','olderPosts'));
     }
 
     public function viewContact()
