@@ -4,15 +4,15 @@ Welcome to Terciel, where inspiration meets knowledge, and stories come to life.
 
 ## Features
 
--[Add category](#add-category)
--[View categories](#view-categories)
--[Add post](#add-post)
--[View posts](#view-posts)
--[Add banner slide](#add-banner-slide)
--[View banner](#view-banner)
--[Modify website settings](#modify-website-settings)
--[Landing page](#landing-page)
--[Category with posts](#category-with-posts)
+-[Add category](#add-category)\
+-[View categories](#view-categories)\
+-[Add post](#add-post)\
+-[View posts](#view-posts)\
+-[Add banner slide](#add-banner-slide)\
+-[View banner](#view-banner)\
+-[Modify website settings](#modify-website-settings)\
+-[Landing page](#landing-page)\
+-[Category with posts](#category-with-posts)\
 -[Post](#post)
 
 ### Add category
