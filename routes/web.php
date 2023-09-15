@@ -43,12 +43,5 @@ Route::prefix('admin')->middleware('auth','withRole','isAdmin')->group(function 
 
 // Master routes
 Route::prefix('master')->middleware('auth','withRole')->group(function(){
-    Route::get('/', [PageController::class, 'analytics']);
-    Route::get('/profile', [PageController::class, 'profile']);
-    Route::get('/profile/settings', [PageController::class, 'profileSettings']);
-    Route::get('/chats', [PageController::class, 'chats']);
-    Route::get('/tasks', [PageController::class, 'tasks']);
-    Route::get('/calendar', [PageController::class, 'calendar']);
-
     Route::resource('posts', PostController::class);
 });

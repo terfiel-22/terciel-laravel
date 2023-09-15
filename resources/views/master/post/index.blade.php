@@ -35,7 +35,7 @@
                                 @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $post->category->name }}</td>
-                                    <td>{{ $post->name }}</td>
+                                    <td><a href="{{ url('blog/'.$post->category->slug.'/'.$post->slug) }}">{{ $post->name }}</a></td>
                                     <td>{{ $post->slug }}</td>
                                     <td>
                                         <img src="{{ asset($post->image) }}" alt="HTML" width="50" height="50">
