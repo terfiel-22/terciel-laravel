@@ -2,45 +2,57 @@
 
 Welcome to Terciel, where inspiration meets knowledge, and stories come to life. Terciel is not just a blog; it's an immersive experience designed to spark curiosity, celebrate diversity, and inspire meaningful conversations.
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Features](#features)
-
-## Installation
-
-[Provide step-by-step instructions on how to install or set up your project. You can include code snippets or commands here.]
-
 ## Features
 
+-[Add category](#add-category)
+-[View categories](#view-categories)
+-[Add post](#add-post)
+-[View posts](#view-posts)
+-[Add banner slide](#add-banner-slide)
+-[View banner](#view-banner)
+-[Modify website settings](#modify-website-settings)
+-[Landing page](#landing-page)
+-[Category with posts](#category-with-posts)
+-[Post](#post)
+
+### Add category
+
 ![Add category](/readme-images/create-categories.png)
-Add category
+
+### View categories
 
 ![View categories](/readme-images/view-categories.png)
-View categories
+
+### Add post
 
 ![Add post](/readme-images/add-post.png)
-Add post
+
+### View posts
 
 ![View posts](/readme-images/view-post.png)
-View posts
+
+### Add banner slide
 
 ![Add banner slide](/readme-images/add-banner.png)
-Add banner slide
+
+### View banner
 
 ![View banner](/readme-images/view-banner.png)
-View banner
+
+### Modify website settings
 
 ![Modify website settings](/readme-images/website-settings.png)
-Modify website settings
+
+### Landing page
 
 ![Landing page](/readme-images/home-page-1.png)
 ![Landing page](/readme-images/home-page-2.png)
 ![Landing page](/readme-images/home-page-3.png)
-Landing page
+
+### Category with posts
 
 ![Category with posts](/readme-images/category-posts.png)
-Category with posts
+
+### Post
 
 ![Post](/readme-images/post.png)
-Post
